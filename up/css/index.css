@@ -1,0 +1,65 @@
+html[data-theme=dark] {
+  --color-primary: #969614;
+  --color-primary-m: #cbcb73;
+  --color-secondary: white;
+  --color-secondary-m: rgba(255, 255, 255, 0.5);
+  --color-tertiary: #002e4e;
+  --color-tertiary-m: #5484a7;
+  --color-quaternary: #001a2c;
+  --color-quaternary-m: #062841;
+  --color-quinary: #00406c;
+  --color-quinary-m: #003356;
+}
+
+html {
+  --color-primary: rgb(36, 38, 43);
+  --color-primary-m: rgba(36, 38, 43, 0.65);
+  --color-secondary: rgb(124, 185, 8);
+  --color-secondary-m: rgba(123, 185, 8, 0.5);
+  --color-tertiary: rgb(38, 52, 65);
+  --color-tertiary-m: hsla(183, 34%, 38%, 0.65);
+  --color-quaternary: hsl(220, 10%, 28%);
+  --color-quaternary-m: hsla(220, 10%, 28%, 0.65);
+  --color-quinary: white;
+  --color-quinary-m: rgba(255, 255, 255, 0.5);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.9;
+  background-color: var(--color-quaternary);
+}
+
+li {
+  list-style: none;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: var(--color-quinary);
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+  font-size: calc(1.2rem + 0.5vw);
+}
+
+i {
+  color: var(--color-primary);
+  font-size: calc(1.5rem + 2vw);
+}
+
+::selection {
+  background-color: var(--color-primary);
+}/*# sourceMappingURL=index.css.map */

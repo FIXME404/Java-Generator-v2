@@ -1,0 +1,19 @@
+@use '../../_breakpoints.scss' as mixins;
+
+.card {
+  padding: 3% 4% 7%;
+  width: 90%;
+
+  background: var(--color-card-background);
+  box-shadow: 0 0.8rem 3.2rem 0 var(--color-quinary-m);
+  backdrop-filter: blur(0.4rem);
+  -webkit-backdrop-filter: blur(0.4rem);
+  border-radius: 1rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-tablet {
+    padding: 3% 3% 3%;
+    width: 98%;
+  }
+}

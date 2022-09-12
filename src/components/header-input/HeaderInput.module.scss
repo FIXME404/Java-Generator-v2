@@ -1,0 +1,115 @@
+@use '../../_breakpoints.scss' as mixins;
+@import '../../variables';
+
+.header-sector {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  width: min-content;
+  margin: 0 auto 7rem;
+
+  &__content {
+    position: relative;
+    width: 20vw;
+
+    input {
+      width: 100%;
+      margin: 3rem auto;
+      font-size: font-size(font-size-extra-small);
+      font-weight: font-weight(font-weight-thin);
+      color: var(--color-secondary);
+      border: 0;
+      outline: 0;
+      border-bottom: 0.1rem solid var(--color-tertiary-m);
+      background: transparent;
+      transition: border-color 0.2s;
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      &:placeholder-shown ~ label {
+        cursor: text;
+        top: 2rem;
+      }
+
+      &:required,
+      &:invalid {
+        box-shadow: none;
+      }
+    }
+
+    input:focus {
+      font-weight: font-weight(font-weight-thin);
+      border-width: 0.2rem;
+      border-image: linear-gradient(to right, var(--color-button), var(--color-button));
+      border-image-slice: 1;
+
+      ~ label {
+        color: var(--color-button);
+        font-weight: font-weight(font-weight-medium);
+        opacity: 0.7;
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+      }
+    }
+
+    label {
+      font-size: calc(0.5rem + 0.5vw);
+      color: var(--color-secondary-m);
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 1024px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-laptop {
+    &__content {
+      label {
+        font-size: calc(1rem + 0.4vw);
+      }
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-tablet {
+    &__content {
+      width: 50vw;
+
+      input {
+        font-size: calc(1rem + 1.2vw);
+
+        ~ label {
+          top: 0.5rem;
+        }
+      }
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile-large {
+    &__content {
+      width: 70vw;
+
+      label {
+        font-size: calc(0.8rem + 1vw);
+      }
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 400px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile {
+    &__content {
+      width: 70vw;
+
+      label {
+        font-size: calc(0.8rem + 1.4vw);
+      }
+    }
+  }
+}

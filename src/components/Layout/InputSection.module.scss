@@ -1,0 +1,18 @@
+@import '../../variables';
+
+.section {
+  grid-column: container-start / container-end;
+
+  background-color: var(--color-quaternary-m);
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  h3 {
+    color: var(--color-primary);
+    font-size: font-size(font-size-regular);
+    font-weight: font-weight(font-weight-medium);
+    margin-bottom: 4.5rem;
+  }
+}
