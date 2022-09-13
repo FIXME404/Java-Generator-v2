@@ -13,7 +13,7 @@
     input {
       width: 100%;
       margin: 3rem auto;
-      font-size: font-size(font-size-extra-small);
+      font-size: font-size(font-size-small);
       font-weight: font-weight(font-weight-thin);
       color: var(--color-secondary);
       border: 0;
@@ -55,7 +55,7 @@
     }
 
     label {
-      font-size: calc(0.5rem + 0.5vw);
+      font-size: font-size(font-size-extra-small);
       color: var(--color-secondary-m);
       position: absolute;
       top: 0;

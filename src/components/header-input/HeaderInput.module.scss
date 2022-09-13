@@ -16,7 +16,7 @@
     input {
       width: 100%;
       margin: 3rem auto;
-      font-size: font-size(font-size-extra-small);
+      font-size: font-size(font-size-small);
       font-weight: font-weight(font-weight-thin);
       color: var(--color-secondary);
       border: 0;
@@ -51,14 +51,14 @@
         font-weight: font-weight(font-weight-medium);
         opacity: 0.7;
         position: absolute;
-        top: 0;
+        top: -1rem;
         display: block;
         transition: 0.2s;
       }
     }
 
     label {
-      font-size: calc(0.5rem + 0.5vw);
+      font-size: font-size(font-size-extra-small);
       color: var(--color-secondary-m);
       position: absolute;
       top: 0;
