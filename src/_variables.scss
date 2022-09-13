@@ -62,10 +62,10 @@ $font-weights: (
 $font-sizes: (
   'font-size-extra-small': calc(1rem + 0.5vw),
   'font-size-small': calc(1.2rem + 0.5vw),
-  'font-size-regular': calc(1.5rem + 1vw),
-  'font-size-medium': calc(1.5rem + 2vw),
-  'font-size-decent': calc(1.5rem + 3.5vw),
-  'font-size-large': calc(1.5rem + 5vw),
+  'font-size-regular': calc(1.5rem + 0.5vw),
+  'font-size-medium': calc(1.5rem + 1vw),
+  'font-size-decent': calc(1.5rem + 3vw),
+  'font-size-large': calc(1.5rem + 4vw),
   'font-size-xlarge': calc(2.5rem + 5vw)
 );
 

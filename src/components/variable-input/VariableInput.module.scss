@@ -158,8 +158,8 @@
       width: 68%;
       background-color: white;
       border-radius: 5rem;
-      top: 4.2px;
-      right: 6px;
+      top: 0.42rem;
+      right: 0.6rem;
     }
   }
 
@@ -176,6 +176,59 @@
         font-size: calc(1rem + 0.4vw);
         top: 0;
         right: 0.7rem;
+      }
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-tablet {
+    flex-wrap: wrap;
+
+    &__input {
+      width: 47%;
+      margin-bottom: 2rem;
+    }
+
+    &__checkbox {
+      label {
+        top: -2.7rem;
+      }
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile-large {
+    &__input {
+      label {
+        font-size: calc(0.8rem + 1vw);
+      }
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 480px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile {
+    flex-wrap: wrap;
+
+    &__input {
+      width: 77%;
+      margin-bottom: 0;
+
+      label {
+        font-size: calc(0.8rem + 1vw);
+      }
+    }
+
+    &__checkbox {
+      margin: 1rem 12vw;
+
+      input:not(:checked)[type='checkbox']::after {
+        right: 1.5rem;
+      }
+    }
+
+    &__delete-btn {
+      button::before {
+        top: 0.4rem;
       }
     }
   }

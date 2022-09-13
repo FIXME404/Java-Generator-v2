@@ -1,6 +1,6 @@
 @import '../../variables';
 
-.section {
+.input-section {
   grid-column: container-start / container-end;
 
   background-color: var(--color-quaternary-m);
@@ -15,5 +15,13 @@
     font-size: font-size(font-size-regular);
     font-weight: font-weight(font-weight-medium);
     margin-bottom: 4.5rem;
+  }
+
+  &__add-btn {
+    button {
+      width: 2rem;
+      height: 2rem;
+      background-color: var(--color-button);
+    }
   }
 }
