@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialClassVariablesState = { variables: [] };
+const initialClassVariablesState = { variables: [{ id: 'v0', type: '', name: '' }] };
 
 const classVarSlice = createSlice({
   name: 'class-variables',
@@ -25,8 +25,13 @@ const classVarSlice = createSlice({
     addVariable: (state, action) => void state.variables.push('v' + (state.variables.length + 1)),
 
     //Removes a specified input field from the UI
-    removeVariable: (state, action) =>
-      void (state.variables = state.variables.filter(variable => variable.id === action.payload.id))
+    removeVariable: (state, action) => {
+      console.log(action.payload);
+      void (state.variables = state.variables.filter(variable => {
+        console.log(variable.id, action.payload.id);
+        return variable.id === action.payload.id;
+      }));
+    }
   }
 });
 
