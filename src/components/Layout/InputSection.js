@@ -8,7 +8,7 @@ import AddInputFieldButton from '../Buttons/AddInputFieldButton';
 
 function InputSection() {
   const variableFields = useSelector(state => state.variables.variables);
-  console.log(variableFields);
+  const methodFields = useSelector(state => state.methods.methods);
 
   return (
     <div className={styles['input-section']} id='input'>
@@ -19,12 +19,13 @@ function InputSection() {
         {variableFields.map((variableState, index) => (
           <VariableInput key={'v' + index} id={'v' + index} />
         ))}
-        {/* <VariableInput id={'v1'} /> */}
-        <div className={styles['input-section__add-btn']}>
-          <AddInputFieldButton type={'variable'} />
-        </div>
+        <AddInputFieldButton type={'variable'} />
+
         <h3>Methods</h3>
-        <MethodInput id={'m1'} />
+        {methodFields.map((methodState, index) => (
+          <MethodInput key={'m' + index} id={'m' + index} />
+        ))}
+        <AddInputFieldButton type={'method'} />
       </Card>
     </div>
   );

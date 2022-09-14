@@ -1,0 +1,60 @@
+@use '../../_breakpoints.scss' as mixins;
+@import '../../variables';
+
+//@@@@@@@@@@@@@@@@@@ INPUT FIELDS @@@@@@@@@@@@@@@@@@@@@@@@@@@
+.text-input {
+  position: relative;
+
+  input {
+    width: 100%;
+    margin: 3rem auto;
+    font-size: font-size(font-size-small);
+    font-weight: font-weight(font-weight-thin);
+    color: var(--color-secondary);
+    border: 0;
+    outline: 0;
+    border-bottom: 0.1rem solid var(--color-tertiary-m);
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:placeholder-shown ~ label {
+      cursor: text;
+      top: 2rem;
+    }
+
+    &:required,
+    &:invalid {
+      box-shadow: none;
+    }
+  }
+
+  input:focus {
+    font-weight: font-weight(font-weight-thin);
+    border-width: 0.2rem;
+    border-image: linear-gradient(to right, var(--color-button), var(--color-button));
+    border-image-slice: 1;
+
+    ~ label {
+      color: var(--color-button);
+      font-weight: font-weight(font-weight-medium);
+      opacity: 0.7;
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+    }
+  }
+
+  label {
+    font-size: font-size(font-size-extra-small);
+    color: var(--color-secondary-m);
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+  }
+}

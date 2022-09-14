@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialMethodsState = { methods: [] };
+const initialMethodsState = { methods: [{ id: 'm0', type: '', name: '' }] };
 
 const methodsSlice = createSlice({
   name: 'method',

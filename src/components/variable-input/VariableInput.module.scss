@@ -6,63 +6,7 @@
   justify-content: space-evenly;
   width: 100%;
 
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@ INPUT FIELDS @@@@@@@@@@@@@@@@@@@@@@@@@@@
-  &__input {
-    position: relative;
-
-    input {
-      width: 100%;
-      margin: 3rem auto;
-      font-size: font-size(font-size-small);
-      font-weight: font-weight(font-weight-thin);
-      color: var(--color-secondary);
-      border: 0;
-      outline: 0;
-      border-bottom: 0.1rem solid var(--color-tertiary-m);
-      background: transparent;
-      transition: border-color 0.2s;
-
-      &::placeholder {
-        color: transparent;
-      }
-
-      &:placeholder-shown ~ label {
-        cursor: text;
-        top: 2rem;
-      }
-
-      &:required,
-      &:invalid {
-        box-shadow: none;
-      }
-    }
-
-    input:focus {
-      font-weight: font-weight(font-weight-thin);
-      border-width: 0.2rem;
-      border-image: linear-gradient(to right, var(--color-button), var(--color-button));
-      border-image-slice: 1;
-
-      ~ label {
-        color: var(--color-button);
-        font-weight: font-weight(font-weight-medium);
-        opacity: 0.7;
-        position: absolute;
-        top: 0;
-        display: block;
-        transition: 0.2s;
-      }
-    }
-
-    label {
-      font-size: font-size(font-size-extra-small);
-      color: var(--color-secondary-m);
-      position: absolute;
-      top: 0;
-      display: block;
-      transition: 0.2s;
-    }
-  }
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@ TEXT FIELD BOXES @@@@@@@@@@@@@@@@@@@@@@@@@@@
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@ CHECKBOX @@@@@@@@@@@@@@@@@@@@@@@@@@@
   &__checkbox {
@@ -135,34 +79,6 @@
     }
   }
 
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@ DELETE BUTTON @@@@@@@@@@@@@@@@@@@@@@@@@@@
-  &__delete-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    button {
-      width: 4rem;
-      height: 1.1rem;
-      background-color: var(--color-button);
-      border: none;
-      border-radius: 5rem;
-      position: relative;
-      cursor: pointer;
-    }
-
-    button::before {
-      content: '';
-      position: absolute;
-      height: 0.3rem;
-      width: 68%;
-      background-color: white;
-      border-radius: 5rem;
-      top: 0.42rem;
-      right: 0.6rem;
-    }
-  }
-
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 1024px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @include mixins.media-laptop {
     &__input {
@@ -183,6 +99,7 @@
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @include mixins.media-tablet {
     flex-wrap: wrap;
+    margin-bottom: 5rem;
 
     &__input {
       width: 47%;
@@ -207,8 +124,6 @@
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 480px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @include mixins.media-mobile {
-    flex-wrap: wrap;
-
     &__input {
       width: 77%;
       margin-bottom: 0;

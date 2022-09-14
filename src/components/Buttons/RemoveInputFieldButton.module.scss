@@ -1,0 +1,34 @@
+@use '../../_breakpoints.scss' as mixins;
+@import '../../variables';
+
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@ DELETE BUTTON @@@@@@@@@@@@@@@@@@@@@@@@@@@
+.delete-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 4rem;
+    height: 1.1rem;
+    background-color: var(--color-button);
+    border: none;
+    border-radius: 5rem;
+    position: relative;
+    cursor: pointer;
+  }
+
+  button::before {
+    content: '';
+    position: absolute;
+    height: 0.3rem;
+    width: 68%;
+    background-color: white;
+    border-radius: 5rem;
+    top: 0.42rem;
+    right: 0.6rem;
+  }
+
+  button::before {
+    top: 0.4rem;
+  }
+}

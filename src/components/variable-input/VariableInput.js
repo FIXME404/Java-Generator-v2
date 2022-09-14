@@ -2,7 +2,7 @@ import styles from './VariableInput.module.scss';
 import { useEffect, useReducer } from 'react';
 import { classVariablesActions } from '../../store/class-variables';
 import { useDispatch } from 'react-redux/es/exports';
-import RemoveInputField from '../Buttons/RemoveInputField';
+import RemoveInputFieldButton from '../Buttons/RemoveInputFieldButton';
 import TextInput from '../Inputs/TextInput';
 import Checkbox from '../Inputs/Checkbox';
 
@@ -56,9 +56,7 @@ function VariableInput(props) {
         <Checkbox name='SETTER' label='Setter?' updateCheckbox={handleCheckboxChange} />
       </div>
 
-      <div className={styles['variable-sector__delete-btn']}>
-        <RemoveInputField type={'variable'} id={props.id} />
-      </div>
+      <RemoveInputFieldButton type={'variable'} id={props.id} />
 
       {/* <input
           name='TYPE'

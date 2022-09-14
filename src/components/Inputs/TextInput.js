@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './TextInput.module.css';
+import styles from './TextInput.module.scss';
 
 function TextInput(props) {
   const [inputText, setInputText] = useState('');
@@ -12,7 +12,7 @@ function TextInput(props) {
     }
   };
   return (
-    <>
+    <div className={styles['text-input']}>
       <input
         id={props.name}
         type='text'
@@ -22,7 +22,7 @@ function TextInput(props) {
         placeholder={props.placeholder}
       />
       <label htmlFor={props.name}>{props.label}</label>
-    </>
+    </div>
   );
 }
 

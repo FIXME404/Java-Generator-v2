@@ -2,7 +2,8 @@ import styles from './MethodInput.module.css';
 import { useReducer } from 'react';
 import { classVariablesActions } from '../../store/class-variables';
 import { useDispatch } from 'react-redux/es/exports';
-import RemoveInputField from '../Buttons/RemoveInputField';
+import RemoveInputFieldButton from '../Buttons/RemoveInputFieldButton';
+import TextInput from '../Inputs/TextInput';
 
 const initialState = { returns: '', name: '', params: '', isMethodPrivate: false };
 
@@ -38,51 +39,77 @@ function MethodInput(props) {
   };
 
   return (
-    <div className='row'>
-      <div className='col-7'>
-        <input
+    <div className={styles['method-sector']}>
+      <div className={styles['method-sector__input']}>
+        <TextInput
           name='RETURNS'
-          type='text'
+          label='Return Type'
           placeholder='Return Type'
-          value={state.returns}
-          onChange={handleTextChange}
-          onBlur={handleChange}
+          updateMethod={handleTextChange}
         />
+      </div>
 
-        <input
+      <div className={styles['method-sector__input']}>
+        <TextInput
           name='NAME'
-          type='text'
-          placeholder="Method's name"
-          value={state.name}
-          onChange={handleTextChange}
-          onBlur={handleChange}
-        />
-        <input
-          name='PARAMS'
-          type='text'
-          placeholder='Params (seperated by commas)'
-          value={state.name}
-          onChange={handleTextChange}
-          onBlur={handleChange}
+          label='Method Name'
+          placeholder='Method Name'
+          updateMethod={handleTextChange}
         />
       </div>
 
-      <div className='col-4'>
-        <label>
-          <input
-            name='IS_METHOD_PRIVATE'
-            type='checkbox'
-            checked={state.isMethodPrivate}
-            onKeyPress={handleChange}
-            onChange={handleChange}
-          />{' '}
-          Private?
-        </label>
-      </div>
-      <div className='col-1'>
-        <RemoveInputField type={'method'} id={props.id} />
+      <div className={styles['method-sector__input']}>
+        <TextInput
+          name='PARAMS'
+          label='Parameters'
+          placeholder='Parameters'
+          updateMethod={handleTextChange}
+        />
       </div>
     </div>
+    // <div className='row'>
+    //     <input
+    //       name='RETURNS'
+    //       type='text'
+    //       placeholder='Return Type'
+    //       value={state.returns}
+    //       onChange={handleTextChange}
+    //       onBlur={handleChange}
+    //     />
+
+    //     <input
+    //       name='NAME'
+    //       type='text'
+    //       placeholder="Method's name"
+    //       value={state.name}
+    //       onChange={handleTextChange}
+    //       onBlur={handleChange}
+    //     />
+    //     <input
+    //       name='PARAMS'
+    //       type='text'
+    //       placeholder='Params (seperated by commas)'
+    //       value={state.name}
+    //       onChange={handleTextChange}
+    //       onBlur={handleChange}
+    //     />
+
+    //   <div className='col-4'>
+    //     <label>
+    //       <input
+    //         name='IS_METHOD_PRIVATE'
+    //         type='checkbox'
+    //         checked={state.isMethodPrivate}
+    //         onKeyPress={handleChange}
+    //         onChange={handleChange}
+    //       />{' '}
+    //       Private?
+    //     </label>
+    //   </div>
+    //   <div className='col-1'>
+    //     <RemoveInputField type={'method'} id={props.id} />
+    //   </div>
+    // </div>
   );
 }
 
