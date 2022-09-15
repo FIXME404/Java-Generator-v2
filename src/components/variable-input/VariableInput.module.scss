@@ -9,92 +9,98 @@
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@ TEXT FIELD BOXES @@@@@@@@@@@@@@@@@@@@@@@@@@@
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@ CHECKBOX @@@@@@@@@@@@@@@@@@@@@@@@@@@
+
   &__checkbox {
     display: flex;
-    align-items: center;
-    position: relative;
-
-    input[type='checkbox'] {
-      cursor: pointer;
-      position: relative;
-      width: 5.5rem;
-      height: 2rem;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-color: var(--color-quinary);
-      border-radius: 2.5rem;
-      transition: all 0.3s ease-in-out;
-    }
-
-    input:checked[type='checkbox'] {
-      background-color: var(--color-primary);
-    }
-
-    input:not(:checked)[type='checkbox'] {
-      background-color: var(--color-quaternary);
-    }
-
-    input[type='checkbox']::before {
-      position: absolute;
-      width: 2rem;
-      height: 100%;
-      border-radius: 50%;
-      background-color: var(--color-quinary);
-      transition: all 0.3s ease-in-out;
-    }
-
-    input[type='checkbox']::before {
-      content: '';
-      left: 0;
-      background-color: white;
-    }
-
-    input:checked[type='checkbox']::before {
-      left: 63%;
-    }
-
-    input:not(:checked)[type='checkbox']::after {
-      right: 0.5rem;
-      top: 0.2rem;
-      content: 'N0';
-      position: absolute;
-      height: 100%;
-      color: var(--color-secondary);
-    }
-
-    input:checked[type='checkbox']::after {
-      left: 0.6rem;
-      top: 0.2rem;
-      content: 'YES';
-      position: absolute;
-      height: 100%;
-      color: white;
-    }
-
-    label {
-      position: absolute;
-      top: 0.8rem;
-      font-size: calc(0.5rem + 0.5vw);
-      color: var(--color-primary);
-    }
+    padding-top: 0.1rem;
+    justify-content: space-evenly;
   }
+  // &__checkbox {
+  //   display: flex;
+  //   align-items: center;
+  //   position: relative;
 
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 1024px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  @include mixins.media-laptop {
-    &__input {
-      label {
-        font-size: calc(1rem + 0.4vw);
-      }
-    }
+  //   input[type='checkbox'] {
+  //     cursor: pointer;
+  //     position: relative;
+  //     width: 5.5rem;
+  //     height: 2rem;
+  //     -webkit-appearance: none;
+  //     -moz-appearance: none;
+  //     background-color: var(--color-quinary);
+  //     border-radius: 2.5rem;
+  //     transition: all 0.3s ease-in-out;
+  //   }
 
-    &__checkbox {
-      label {
-        font-size: calc(1rem + 0.4vw);
-        top: 0;
-        right: 0.7rem;
-      }
-    }
-  }
+  //   input:checked[type='checkbox'] {
+  //     background-color: var(--color-primary);
+  //   }
+
+  //   input:not(:checked)[type='checkbox'] {
+  //     background-color: var(--color-quaternary);
+  //   }
+
+  //   input[type='checkbox']::before {
+  //     position: absolute;
+  //     width: 2rem;
+  //     height: 100%;
+  //     border-radius: 50%;
+  //     background-color: var(--color-quinary);
+  //     transition: all 0.3s ease-in-out;
+  //   }
+
+  //   input[type='checkbox']::before {
+  //     content: '';
+  //     left: 0;
+  //     background-color: white;
+  //   }
+
+  //   input:checked[type='checkbox']::before {
+  //     left: 63%;
+  //   }
+
+  //   input:not(:checked)[type='checkbox']::after {
+  //     right: 0.5rem;
+  //     top: 0.2rem;
+  //     content: 'N0';
+  //     position: absolute;
+  //     height: 100%;
+  //     color: var(--color-secondary);
+  //   }
+
+  //   input:checked[type='checkbox']::after {
+  //     left: 0.6rem;
+  //     top: 0.2rem;
+  //     content: 'YES';
+  //     position: absolute;
+  //     height: 100%;
+  //     color: white;
+  //   }
+
+  //   label {
+  //     position: absolute;
+  //     top: 0.8rem;
+  //     font-size: calc(0.5rem + 0.5vw);
+  //     color: var(--color-primary);
+  //   }
+  // }
+
+  // // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 1024px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  // @include mixins.media-laptop {
+  //   &__input {
+  //     label {
+  //       font-size: calc(1rem + 0.4vw);
+  //     }
+  //   }
+
+  //   &__checkbox {
+  //     label {
+  //       font-size: calc(1rem + 0.4vw);
+  //       top: 0;
+  //       right: 0.7rem;
+  //     }
+  //   }
+  // }
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @include mixins.media-tablet {
@@ -107,20 +113,24 @@
     }
 
     &__checkbox {
-      label {
-        top: -2.7rem;
-      }
+      width: 100%;
     }
+
+    // &__checkbox {
+    //   label {
+    //     top: -2.7rem;
+    //   }
+    // }
   }
 
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  @include mixins.media-mobile-large {
-    &__input {
-      label {
-        font-size: calc(0.8rem + 1vw);
-      }
-    }
-  }
+  // // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  // @include mixins.media-mobile-large {
+  //   &__input {
+  //     label {
+  //       font-size: calc(0.8rem + 1vw);
+  //     }
+  //   }
+  // }
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 480px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @include mixins.media-mobile {
@@ -128,9 +138,9 @@
       width: 77%;
       margin-bottom: 0;
 
-      label {
-        font-size: calc(0.8rem + 1vw);
-      }
+      // label {
+      //   font-size: calc(0.8rem + 1vw);
+      // }
     }
 
     &__checkbox {

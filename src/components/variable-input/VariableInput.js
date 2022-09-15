@@ -50,61 +50,13 @@ function VariableInput(props) {
 
       <div className={styles['variable-sector__checkbox']}>
         <Checkbox name='GETTER' label='Getter?' updateCheckbox={handleCheckboxChange} />
-      </div>
-
-      <div className={styles['variable-sector__checkbox']}>
         <Checkbox name='SETTER' label='Setter?' updateCheckbox={handleCheckboxChange} />
       </div>
+      {/* 
+      <div className={styles['variable-sector__checkbox']}>
+      </div> */}
 
       <RemoveInputFieldButton type={'variable'} id={props.id} />
-
-      {/* <input
-          name='TYPE'
-          id='TYPE'
-          type='text'
-          value={state.type}
-          onChange={handleTextChange}
-          onBlur={handleChange}
-        />
-        <label htmlFor='TYPE'>Type</label>
-
-        <input
-          name='NAME'
-          id='NAME'
-          type='text'
-          value={state.name}
-          onChange={handleTextChange}
-          onBlur={handleChange}
-        />
-        <label htmlFor='NAME'>Name</label>
-      </div>
-
-      <div className='col-4'>
-        <label>
-          <input
-            name='GETTER'
-            type='checkbox'
-            checked={state.includesGetter}
-            onKeyPress={handleChange}
-            onChange={handleChange}
-          />{' '}
-          getter?
-        </label>
-
-        <label className='checkbox-text'>
-          <input
-            name='SETTER'
-            type='checkbox'
-            checked={state.includesSetter}
-            onKeyPress={handleChange}
-            onChange={handleChange}
-          />{' '}
-          setter?
-        </label>
-      </div>
-      <div className='col-1'>
-        <RemoveInputField type={'variable'} id={props.id} />
-      </div> */}
     </div>
   );
 }

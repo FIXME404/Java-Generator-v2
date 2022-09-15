@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './Checkbox.module.scss';
 
 function Checkbox(props) {
   const [isChecked, setIsChecked] = useState(false);
@@ -9,7 +10,7 @@ function Checkbox(props) {
   };
 
   return (
-    <>
+    <div className={styles.checkbox}>
       <label>{props.label}</label>
       <input
         type='checkbox'
@@ -18,7 +19,7 @@ function Checkbox(props) {
         onKeyPress={handleChange}
         onChange={handleChange}
       />
-    </>
+    </div>
   );
 }
 

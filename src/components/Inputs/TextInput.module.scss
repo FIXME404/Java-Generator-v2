@@ -57,4 +57,29 @@
     display: block;
     transition: 0.2s;
   }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-tablet {
+    input {
+      font-size: calc(1rem + 1.2vw);
+
+      ~ label {
+        top: 0.5rem;
+      }
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile-large {
+    label {
+      font-size: calc(0.8rem + 1vw);
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 480px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile {
+    label {
+      font-size: calc(0.8rem + 1.4vw);
+    }
+  }
 }

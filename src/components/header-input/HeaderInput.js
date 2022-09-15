@@ -1,6 +1,7 @@
 import styles from './HeaderInput.module.scss';
 import { useDispatch } from 'react-redux';
 import { headerActions } from '../../store/header';
+import TextInput from '../Inputs/TextInput';
 
 function HeaderInput() {
   const dispatch = useDispatch();
@@ -15,23 +16,30 @@ function HeaderInput() {
   return (
     <div className={styles['header-sector']}>
       <div className={styles['header-sector__content']}>
-        <input id='name' onChange={changeNameHandler} placeholder='Class Name' required />
-        <label htmlFor='name'>Class name</label>
-      </div>
-
-      <div className={styles['header-sector__content']}>
-        <input id='extends' onChange={changeExtendsHandler} placeholder='extend' required />
-        <label htmlFor='extends'>extend</label>
-      </div>
-
-      <div className={styles['header-sector__content']}>
-        <input
-          id='implements'
-          onChange={changeImplementsHandler}
-          placeholder='implements'
-          required
+        <TextInput
+          name='NAME'
+          label='Class Name'
+          placeholder='Class Name'
+          updateMethod={changeNameHandler}
         />
-        <label htmlFor='implements'>implement</label>
+      </div>
+
+      <div className={styles['header-sector__content']}>
+        <TextInput
+          name='EXTENDS'
+          label='extend'
+          placeholder='extend'
+          updateMethod={changeExtendsHandler}
+        />
+      </div>
+
+      <div className={styles['header-sector__content']}>
+        <TextInput
+          name='IMPLEMENTS'
+          label='implements'
+          placeholder='implements'
+          updateMethod={changeImplementsHandler}
+        />
       </div>
     </div>
   );
