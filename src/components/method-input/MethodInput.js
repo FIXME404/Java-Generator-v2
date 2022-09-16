@@ -1,10 +1,10 @@
 import { useReducer } from 'react';
-import { classVariablesActions } from '../../store/class-variables';
 import { useDispatch } from 'react-redux/es/exports';
 import styles from './MethodInput.module.scss';
 import TextInput from '../Inputs/TextInput';
 import Checkbox from '../Inputs/Checkbox';
 import RemoveInputFieldButton from '../Buttons/RemoveInputFieldButton';
+import { methodsActions } from '../../store/methods';
 
 const initialState = { returns: '', name: '', params: '', isMethodPrivate: false };
 
@@ -23,20 +23,15 @@ const methodReducer = (state, action) => {
 };
 
 function MethodInput(props) {
-  const [state, dispatchActions] = useReducer(methodReducer, initialState);
+  const [inputState, dispatchActions] = useReducer(methodReducer, initialState);
 
   const dispatch = useDispatch();
 
-  const handleTextChange = event =>
-    dispatchActions({ type: event.target.name, value: event.target.value });
+  const handleTextChange = (state, action) => dispatchActions({ type: action, value: state });
 
-  const handleChange = event => {
-    if (event.target.type === 'text') {
-      dispatchActions({ type: event.target.name, value: event.target.value });
-    } else if (event.key === 'Enter') {
-      dispatchActions({ type: event.target.name, value: event.target.value });
-    }
-    dispatch(classVariablesActions.updateVariable({ values: state, id: props.id }));
+  const handleCheckboxChange = (state, action) => {
+    dispatchActions({ type: action, value: state });
+    dispatch(methodsActions.addMethod({ values: inputState, id: props.id }));
   };
 
   return (
@@ -67,7 +62,7 @@ function MethodInput(props) {
       </div>
 
       <div className={styles['method-sector__checkbox']}>
-        <Checkbox name='IS_METHOD_PRIVATE' label='Private?' updateCheckbox={handleChange} />
+        <Checkbox name='IS_METHOD_PRIVATE' label='Private?' updateCheckbox={handleCheckboxChange} />
       </div>
 
       <div className={styles['method-sector__delete-btn']}>

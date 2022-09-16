@@ -23,19 +23,22 @@ const variableReducer = (state, action) => {
 };
 
 function VariableInput(props) {
-  console.log(props.id);
   const [inputState, dispatchActions] = useReducer(variableReducer, initialState);
 
   const dispatch = useDispatch();
 
   const handleTextChange = (state, action) => {
+    console.log(state, action);
     dispatchActions({ type: action, value: state });
-    dispatch(classVariablesActions.updateVariable({ values: inputState, id: props.id }));
+    console.log(inputState, props.id);
+
+    dispatch(classVariablesActions.updateVariable({ id: props.id, ...inputState }));
   };
 
   const handleCheckboxChange = (state, action) => {
     dispatchActions({ type: action, value: state });
-    dispatch(classVariablesActions.updateVariable({ values: inputState, id: props.id }));
+    console.log(inputState, props.id);
+    dispatch(classVariablesActions.updateVariable({ id: props.id, ...inputState }));
   };
 
   return (

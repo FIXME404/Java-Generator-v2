@@ -7,10 +7,13 @@ function TextInput(props) {
   const handleTextChange = event => setInputText(prevState => event.target.value);
 
   const handleChange = () => {
+    console.log('THIS IS RUNNING', inputText.trim().length !== 0);
     if (inputText.trim().length !== 0) {
+      console.log(inputText, props.name);
       props.updateMethod(inputText, props.name);
     }
   };
+
   return (
     <div className={styles['text-input']}>
       <input

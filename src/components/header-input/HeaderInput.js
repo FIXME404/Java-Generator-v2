@@ -6,12 +6,11 @@ import TextInput from '../Inputs/TextInput';
 function HeaderInput() {
   const dispatch = useDispatch();
 
-  const changeNameHandler = event => dispatch(headerActions.addName(event.target.value));
+  const changeNameHandler = inputText => dispatch(headerActions.addName(inputText));
 
-  const changeExtendsHandler = event => dispatch(headerActions.addExtends(event.target.value));
+  const changeExtendsHandler = inputText => dispatch(headerActions.addExtends(inputText));
 
-  const changeImplementsHandler = event =>
-    dispatch(headerActions.addImplements(event.target.value));
+  const changeImplementsHandler = inputText => dispatch(headerActions.addImplements(inputText));
 
   return (
     <div className={styles['header-sector']}>
