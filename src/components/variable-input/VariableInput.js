@@ -42,9 +42,6 @@ function VariableInput(props) {
     <div className={styles['variable-sector']}>
       <div className={styles['variable-sector__input']}>
         <TextInput name='TYPE' label='Type' placeholder='Type' updateMethod={handleTextChange} />
-      </div>
-
-      <div className={styles['variable-sector__input']}>
         <TextInput name='NAME' label='Name' placeholder='Name' updateMethod={handleTextChange} />
       </div>
 
@@ -52,11 +49,10 @@ function VariableInput(props) {
         <Checkbox name='GETTER' label='Getter?' updateCheckbox={handleCheckboxChange} />
         <Checkbox name='SETTER' label='Setter?' updateCheckbox={handleCheckboxChange} />
       </div>
-      {/* 
-      <div className={styles['variable-sector__checkbox']}>
-      </div> */}
 
-      <RemoveInputFieldButton type={'variable'} id={props.id} />
+      <div className={styles['variable-sector__delete-btn']}>
+        <RemoveInputFieldButton type={'variable'} id={props.id} />
+      </div>
     </div>
   );
 }

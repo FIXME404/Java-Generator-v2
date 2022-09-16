@@ -3,21 +3,15 @@
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@ DELETE BUTTON @@@@@@@@@@@@@@@@@@@@@@@@@@@
 .delete-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 4rem;
+  height: 1.1rem;
+  background-color: var(--color-button);
+  border: none;
+  border-radius: 5rem;
+  position: relative;
+  cursor: pointer;
 
-  button {
-    width: 4rem;
-    height: 1.1rem;
-    background-color: var(--color-button);
-    border: none;
-    border-radius: 5rem;
-    position: relative;
-    cursor: pointer;
-  }
-
-  button::before {
+  &::before {
     content: '';
     position: absolute;
     height: 0.3rem;
@@ -28,7 +22,7 @@
     right: 0.6rem;
   }
 
-  button::before {
+  &::before {
     top: 0.4rem;
   }
 }

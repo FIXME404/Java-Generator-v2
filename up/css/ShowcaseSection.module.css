@@ -9,19 +9,23 @@ html[data-theme=dark] {
   --color-quaternary-m: #062841;
   --color-quinary: #00406c;
   --color-quinary-m: #003356;
+  --color-card-background: rgba(0, 26, 44, 0.25);
+  --color-button: #e45826;
 }
 
 html {
-  --color-primary: rgb(36, 38, 43);
-  --color-primary-m: rgba(36, 38, 43, 0.65);
-  --color-secondary: rgb(124, 185, 8);
-  --color-secondary-m: rgba(123, 185, 8, 0.5);
-  --color-tertiary: rgb(38, 52, 65);
-  --color-tertiary-m: hsla(183, 34%, 38%, 0.65);
-  --color-quaternary: hsl(220, 10%, 28%);
-  --color-quaternary-m: hsla(220, 10%, 28%, 0.65);
-  --color-quinary: white;
-  --color-quinary-m: rgba(255, 255, 255, 0.5);
+  --color-primary: #b96619;
+  --color-primary-m: #bfbb99;
+  --color-secondary: #643100;
+  --color-secondary-m: #914600;
+  --color-tertiary: #dea057;
+  --color-tertiary-m: #bd7c40;
+  --color-quaternary: #fcffe7;
+  --color-quaternary-m: #bfc2b0;
+  --color-quinary: #e45826;
+  --color-quinary-m: #c2a78f;
+  --color-card-background: rgba(194, 167, 143, 0.25);
+  --color-button: #e45826;
 }
 
 html[data-theme=dark] {
@@ -35,21 +39,188 @@ html[data-theme=dark] {
   --color-quaternary-m: #062841;
   --color-quinary: #00406c;
   --color-quinary-m: #003356;
+  --color-card-background: rgba(0, 26, 44, 0.25);
+  --color-button: #e45826;
 }
 
 html {
-  --color-primary: rgb(36, 38, 43);
-  --color-primary-m: rgba(36, 38, 43, 0.65);
-  --color-secondary: rgb(124, 185, 8);
-  --color-secondary-m: rgba(123, 185, 8, 0.5);
-  --color-tertiary: rgb(38, 52, 65);
-  --color-tertiary-m: hsla(183, 34%, 38%, 0.65);
-  --color-quaternary: hsl(220, 10%, 28%);
-  --color-quaternary-m: hsla(220, 10%, 28%, 0.65);
-  --color-quinary: white;
-  --color-quinary-m: rgba(255, 255, 255, 0.5);
+  --color-primary: #b96619;
+  --color-primary-m: #bfbb99;
+  --color-secondary: #643100;
+  --color-secondary-m: #914600;
+  --color-tertiary: #dea057;
+  --color-tertiary-m: #bd7c40;
+  --color-quaternary: #fcffe7;
+  --color-quaternary-m: #bfc2b0;
+  --color-quinary: #e45826;
+  --color-quinary-m: #c2a78f;
+  --color-card-background: rgba(194, 167, 143, 0.25);
+  --color-button: #e45826;
 }
 
 .showcase {
   grid-column: container-start/container-end;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.showcase__content {
+  display: grid;
+  grid-template-rows: 100% 100%;
+  padding: calc(1rem + 5vh) calc(1rem + 2vh) 0;
+}
+.showcase__content--heading h1 {
+  color: var(--color-secondary);
+  font-size: calc(1.5rem + 4vw);
+  letter-spacing: 0.2rem;
+}
+.showcase__content--subheading {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+.showcase__content--subheading h2 {
+  color: var(--color-secondary-m);
+  font-size: calc(1.5rem + 0.5vw);
+  letter-spacing: 0.2rem;
+  margin-bottom: 11rem;
+}
+.showcase__content--subheading h3 {
+  color: var(--color-secondary-m);
+  font-size: calc(1.2rem + 0.5vw);
+  letter-spacing: 0.2rem;
+}
+.showcase__content--subheading h3 strong {
+  color: #e45826;
+  position: relative;
+  margin-right: 2.4rem;
+}
+.showcase__content--subheading h3 svg {
+  font-size: 2.5rem;
+  position: absolute;
+  top: 0.1rem;
+}
+.showcase__content--subheading__content {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.showcase__content--subheading__content a {
+  background: #e45826;
+  border: 0.1rem solid #e45826;
+  border-radius: 2.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0.1rem 0.2rem 0.4rem;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: calc(1.2rem + 0.5vw);
+  line-height: 1.5rem;
+  padding: 1.8rem 1.4rem;
+  margin-bottom: 20px;
+  width: max-content;
+  height: 5rem;
+}
+.showcase__content--subheading__logo {
+  position: absolute;
+  right: 5vw;
+  top: 15vh;
+  fill: #e45826;
+}
+.showcase__content--subheading__logo img {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 45rem;
+  height: 30rem;
+}
+@media screen and (min-width: 1300px) {
+  .showcase__content--subheading__logo {
+    right: 15vw;
+  }
+  .showcase__content--subheading__logo img {
+    width: 45rem;
+    height: 30rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .showcase {
+    height: 90vh;
+  }
+  .showcase__content--subheading__logo {
+    right: 1.5vw;
+  }
+  .showcase__content--subheading__logo img {
+    width: 30rem;
+    height: 20rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .showcase__content {
+    text-align: center;
+  }
+  .showcase__content--heading {
+    margin-top: 4rem;
+  }
+  .showcase__content--heading h1 {
+    font-size: calc(1.5rem + 3vw);
+  }
+  .showcase__content--subheading {
+    flex-direction: column;
+  }
+  .showcase__content--subheading__content {
+    margin-bottom: 6rem;
+  }
+  .showcase__content--subheading__content h2,
+.showcase__content--subheading__content h3,
+.showcase__content--subheading__content a {
+    font-weight: 500;
+    font-size: calc(1.2rem + 0.5vw);
+  }
+  .showcase__content--subheading__content a {
+    margin: auto;
+  }
+  .showcase__content--subheading__content h2 {
+    margin: auto auto 11rem;
+  }
+  .showcase__content--subheading__content h3 {
+    margin: 1rem auto;
+  }
+  .showcase__content--subheading__content h3 strong {
+    margin-right: 1.7rem;
+  }
+  .showcase__content--subheading__content h3 strong svg {
+    font-size: 2rem;
+    top: 0.00000001rem;
+  }
+  .showcase__content--subheading__logo {
+    position: static;
+  }
+  .showcase__content--subheading__logo img {
+    width: 30rem;
+    height: 20rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .showcase__content--heading h1 {
+    font-size: calc(1.5rem + 3vw);
+  }
+  .showcase__content--subheading h2,
+.showcase__content--subheading h3,
+.showcase__content--subheading a {
+    font-weight: 500;
+    font-size: calc(1rem + 0.5vw);
+  }
+  .showcase__content--subheading a {
+    height: 3.5rem;
+    padding: 1.7rem 1.4rem;
+    line-height: 0.3rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .showcase__content--heading h1 {
+    font-size: calc(1.5rem + 3vw);
+  }
+  .showcase__content img {
+    width: 22.5rem;
+    height: 15rem;
+  }
 }/*# sourceMappingURL=ShowcaseSection.module.css.map */

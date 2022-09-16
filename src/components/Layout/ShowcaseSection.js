@@ -13,13 +13,13 @@ function ShowcaseSection() {
       <div className={styles['showcase__content']}>
         <div className={styles['showcase__content--heading']}>
           {/* Heading */}
-          <h1>Java Class Generator</h1>
+          <h1>Java Code Generator</h1>
         </div>
 
         <div className={styles['showcase__content--subheading']}>
           <div className={styles['showcase__content--subheading__content']}>
             {/* Subheading */}
-            <h2>Generate a Java Class Quickly for your Project!</h2>
+            <h2>Generate Java Class Code Quickly for your Project!</h2>
 
             {/* Get Started Button */}
             <a href='#input'>GET STARTED</a>

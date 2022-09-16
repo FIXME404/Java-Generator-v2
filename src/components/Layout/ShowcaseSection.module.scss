@@ -55,6 +55,7 @@
         margin-bottom: 2rem;
         display: flex;
         flex-direction: column;
+
         a {
           background: #e45826;
           border: 0.1rem solid #e45826;
@@ -194,7 +195,6 @@
         h2,
         h3,
         a {
-          font-weight: 500;
           font-size: font-size(font-size-extra-small);
         }
 

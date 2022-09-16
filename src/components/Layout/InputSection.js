@@ -11,23 +11,38 @@ function InputSection() {
   const methodFields = useSelector(state => state.methods.methods);
 
   return (
-    <div className={styles['input-section']} id='input'>
+    <section className={styles['input-section']} id='input'>
       <Card>
+        {/* Header Input Fields */}
         <h3>Class Header</h3>
         <HeaderInput />
+
+        {/* Variable Input Fields */}
         <h3>Instance Variables</h3>
         {variableFields.map((variableState, index) => (
           <VariableInput key={'v' + index} id={'v' + index} />
         ))}
-        <AddInputFieldButton type={'variable'} />
 
+        <div className={styles['input-section__add-btn']}>
+          <AddInputFieldButton type={'variable'} />
+        </div>
+
+        {/* Method Input Fields */}
         <h3>Methods</h3>
         {methodFields.map((methodState, index) => (
           <MethodInput key={'m' + index} id={'m' + index} />
         ))}
-        <AddInputFieldButton type={'method'} />
+
+        <div className={styles['input-section__add-btn']}>
+          <AddInputFieldButton type={'method'} />
+        </div>
+
+        {/* To Code Button */}
+        <div className={styles['input-section__to-code-btn']}>
+          <a href='#input'>GENERATE CODE</a>
+        </div>
       </Card>
-    </div>
+    </section>
   );
 }
 

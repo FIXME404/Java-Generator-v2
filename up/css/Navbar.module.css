@@ -9,19 +9,23 @@ html[data-theme=dark] {
   --color-quaternary-m: #062841;
   --color-quinary: #00406c;
   --color-quinary-m: #003356;
+  --color-card-background: rgba(0, 26, 44, 0.25);
+  --color-button: #e45826;
 }
 
 html {
-  --color-primary: rgb(36, 38, 43);
-  --color-primary-m: rgba(36, 38, 43, 0.65);
-  --color-secondary: rgb(124, 185, 8);
-  --color-secondary-m: rgba(123, 185, 8, 0.5);
-  --color-tertiary: rgb(38, 52, 65);
-  --color-tertiary-m: hsla(183, 34%, 38%, 0.65);
-  --color-quaternary: hsl(220, 10%, 28%);
-  --color-quaternary-m: hsla(220, 10%, 28%, 0.65);
-  --color-quinary: white;
-  --color-quinary-m: rgba(255, 255, 255, 0.5);
+  --color-primary: #b96619;
+  --color-primary-m: #bfbb99;
+  --color-secondary: #643100;
+  --color-secondary-m: #914600;
+  --color-tertiary: #dea057;
+  --color-tertiary-m: #bd7c40;
+  --color-quaternary: #fcffe7;
+  --color-quaternary-m: #bfc2b0;
+  --color-quinary: #e45826;
+  --color-quinary-m: #c2a78f;
+  --color-card-background: rgba(194, 167, 143, 0.25);
+  --color-button: #e45826;
 }
 
 .header.open .header__menu--line {
@@ -65,6 +69,7 @@ html {
 }
 .header__nav--links__items a:link,
 .header__nav--links__items a:visited {
+  font-size: 2rem;
   color: var(--color-secondary);
   margin-right: 2vw;
   padding: 0 1.5rem;
@@ -85,7 +90,7 @@ html {
   transition: all 0.5s ease-in-out;
 }
 .header__nav--links__toggle-container input:checked[type=checkbox] {
-  background-color: var(--color-quaternary);
+  background-color: var(--color-secondary-m);
 }
 .header__nav--links__toggle-container input:not(:checked)[type=checkbox] {
   background-color: var(--color-tertiary);
@@ -107,8 +112,8 @@ html {
   left: 52%;
 }
 .header__nav--links__toggle-container input:not(:checked)[type=checkbox]::after {
-  right: 0.6rem;
-  top: 0.3rem;
+  right: 1rem;
+  top: 0.4rem;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 2rem;
@@ -119,25 +124,22 @@ html {
 }
 .header__nav--links__toggle-container input:checked[type=checkbox]::after {
   left: 0.6rem;
-  top: 0.3rem;
+  top: 0.4rem;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 2rem;
-  content: "\f185";
+  content: "\f6c4";
   position: absolute;
   height: 100%;
-  color: var(--color-secondary);
+  color: white;
 }
 @media screen and (min-width: 1300px) {
   .header__nav--links__items a:link,
 .header__nav--links__items a:visited {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
 }
 @media screen and (max-width: 800px) {
-  .header__nav.open {
-    transform: rotateY(0);
-  }
   .header__nav {
     position: fixed;
     top: 0;
@@ -184,10 +186,6 @@ html {
   .header__nav--links__toggle-container {
     justify-content: center;
   }
-  .header.open div {
-    background-color: red;
-    color: red;
-  }
   .header.open nav {
     transform: rotateY(0);
   }
@@ -205,7 +203,7 @@ html {
   .header__menu--line, .header__menu--line::before, .header__menu--line::after {
     content: "";
     position: absolute;
-    width: 3.5rem;
+    width: 2.5rem;
     height: 0.2rem;
     background-color: var(--color-quinary);
     top: 0;

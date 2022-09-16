@@ -1,0 +1,13 @@
+@use '../../_breakpoints.scss' as mixins;
+@import '../../variables';
+
+.code-section {
+  grid-column: container-start / container-end;
+
+  background-color: var(--color-quaternary-m);
+  padding: 3rem 0;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

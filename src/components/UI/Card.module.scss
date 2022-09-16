@@ -1,7 +1,7 @@
 @use '../../_breakpoints.scss' as mixins;
 
 .card {
-  padding: 3% 4% 7%;
+  padding: 3% 4%;
   width: 90%;
   height: max-content;
   background: var(--color-card-background);

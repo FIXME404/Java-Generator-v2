@@ -1,0 +1,129 @@
+html[data-theme=dark] {
+  --color-primary: #969614;
+  --color-primary-m: #cbcb73;
+  --color-secondary: white;
+  --color-secondary-m: rgba(255, 255, 255, 0.5);
+  --color-tertiary: #002e4e;
+  --color-tertiary-m: #5484a7;
+  --color-quaternary: #001a2c;
+  --color-quaternary-m: #062841;
+  --color-quinary: #00406c;
+  --color-quinary-m: #003356;
+  --color-card-background: rgba(0, 26, 44, 0.25);
+  --color-button: #e45826;
+}
+
+html {
+  --color-primary: #b96619;
+  --color-primary-m: #bfbb99;
+  --color-secondary: #643100;
+  --color-secondary-m: #914600;
+  --color-tertiary: #dea057;
+  --color-tertiary-m: #bd7c40;
+  --color-quaternary: #fcffe7;
+  --color-quaternary-m: #bfc2b0;
+  --color-quinary: #e45826;
+  --color-quinary-m: #c2a78f;
+  --color-card-background: rgba(194, 167, 143, 0.25);
+  --color-button: #e45826;
+}
+
+html[data-theme=dark] {
+  --color-primary: #969614;
+  --color-primary-m: #cbcb73;
+  --color-secondary: white;
+  --color-secondary-m: rgba(255, 255, 255, 0.5);
+  --color-tertiary: #002e4e;
+  --color-tertiary-m: #5484a7;
+  --color-quaternary: #001a2c;
+  --color-quaternary-m: #062841;
+  --color-quinary: #00406c;
+  --color-quinary-m: #003356;
+  --color-card-background: rgba(0, 26, 44, 0.25);
+  --color-button: #e45826;
+}
+
+html {
+  --color-primary: #b96619;
+  --color-primary-m: #bfbb99;
+  --color-secondary: #643100;
+  --color-secondary-m: #914600;
+  --color-tertiary: #dea057;
+  --color-tertiary-m: #bd7c40;
+  --color-quaternary: #fcffe7;
+  --color-quaternary-m: #bfc2b0;
+  --color-quinary: #e45826;
+  --color-quinary-m: #c2a78f;
+  --color-card-background: rgba(194, 167, 143, 0.25);
+  --color-button: #e45826;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: min-content;
+}
+.checkbox input[type=checkbox] {
+  cursor: pointer;
+  position: relative;
+  width: 5.5rem;
+  height: 2rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--color-quinary);
+  border-radius: 2.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.checkbox input:checked[type=checkbox] {
+  background-color: var(--color-primary);
+}
+.checkbox input:not(:checked)[type=checkbox] {
+  background-color: var(--color-quaternary);
+}
+.checkbox input[type=checkbox]::before {
+  position: absolute;
+  width: 2rem;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--color-quinary);
+  transition: all 0.3s ease-in-out;
+}
+.checkbox input[type=checkbox]::before {
+  content: "";
+  left: 0;
+  background-color: white;
+}
+.checkbox input:checked[type=checkbox]::before {
+  left: 63%;
+}
+.checkbox input:not(:checked)[type=checkbox]::after {
+  right: 0.5rem;
+  top: 0.2rem;
+  content: "N0";
+  position: absolute;
+  height: 100%;
+  color: var(--color-secondary);
+}
+.checkbox input:checked[type=checkbox]::after {
+  left: 0.6rem;
+  top: 0.2rem;
+  content: "YES";
+  position: absolute;
+  height: 100%;
+  color: white;
+}
+.checkbox label {
+  font-size: calc(1rem + 0.5vw);
+  color: var(--color-primary);
+}
+@media screen and (max-width: 600px) {
+  .checkbox label {
+    font-size: calc(0.8rem + 1vw);
+  }
+}
+@media screen and (max-width: 480px) {
+  .checkbox label {
+    font-size: calc(0.8rem + 1.4vw);
+  }
+}/*# sourceMappingURL=Checkbox.module.css.map */

@@ -1,0 +1,70 @@
+@use '../../_breakpoints.scss' as mixins;
+@import '../../variables';
+
+.method-sector {
+  display: flex;
+  width: 100%;
+  margin-top: 3rem;
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@ TEXT FIELD BOXES @@@@@@@@@@@@@@@@@@@@@@@@@@@
+  &__input {
+    width: 45vw;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &--params {
+      width: 100%;
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@ CHECKBOX @@@@@@@@@@@@@@@@@@@@@@@@@@@
+  &__checkbox {
+    width: 30vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding-top: 0.1rem;
+    padding-bottom: 3.1rem;
+  }
+
+  &__delete-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-tablet {
+    margin: 0 auto 5rem;
+
+    flex-direction: column;
+
+    &__input {
+      width: 70%;
+      margin: auto;
+    }
+
+    &__checkbox {
+      margin: auto;
+    }
+
+    &__delete-btn {
+      margin: auto;
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile-large {
+    width: 70vw;
+
+    &__input {
+      width: 100%;
+
+      div {
+        width: 100%;
+      }
+    }
+  }
+}

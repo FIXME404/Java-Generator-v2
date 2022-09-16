@@ -14,11 +14,7 @@ function RemoveInputField(props) {
     }
   };
 
-  return (
-    <div className={styles['delete-btn']}>
-      <button onClick={removeItemHandler} />
-    </div>
-  );
+  return <button onClick={removeItemHandler} className={styles['delete-btn']} />;
 }
 
 export default RemoveInputField;

@@ -1,9 +1,10 @@
-import styles from './MethodInput.module.css';
 import { useReducer } from 'react';
 import { classVariablesActions } from '../../store/class-variables';
 import { useDispatch } from 'react-redux/es/exports';
-import RemoveInputFieldButton from '../Buttons/RemoveInputFieldButton';
+import styles from './MethodInput.module.scss';
 import TextInput from '../Inputs/TextInput';
+import Checkbox from '../Inputs/Checkbox';
+import RemoveInputFieldButton from '../Buttons/RemoveInputFieldButton';
 
 const initialState = { returns: '', name: '', params: '', isMethodPrivate: false };
 
@@ -47,24 +48,30 @@ function MethodInput(props) {
           placeholder='Return Type'
           updateMethod={handleTextChange}
         />
-      </div>
 
-      <div className={styles['method-sector__input']}>
         <TextInput
           name='NAME'
           label='Method Name'
           placeholder='Method Name'
           updateMethod={handleTextChange}
         />
+
+        <div className={styles['method-sector__input--params']}>
+          <TextInput
+            name='PARAMS'
+            label='Parameters'
+            placeholder='Parameters'
+            updateMethod={handleTextChange}
+          />
+        </div>
       </div>
 
-      <div className={styles['method-sector__input']}>
-        <TextInput
-          name='PARAMS'
-          label='Parameters'
-          placeholder='Parameters'
-          updateMethod={handleTextChange}
-        />
+      <div className={styles['method-sector__checkbox']}>
+        <Checkbox name='IS_METHOD_PRIVATE' label='Private?' updateCheckbox={handleChange} />
+      </div>
+
+      <div className={styles['method-sector__delete-btn']}>
+        <RemoveInputFieldButton type={'method'} id={props.id} />
       </div>
     </div>
     // <div className='row'>

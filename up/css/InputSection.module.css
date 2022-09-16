@@ -28,57 +28,28 @@ html {
   --color-button: #e45826;
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.input-section {
+  grid-column: container-start/container-end;
+  background-color: var(--color-quaternary-m);
+  padding: 3rem 0;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
-
-:root {
-  font-size: 62.5%;
-}
-
-body {
-  font-family: "Roboto", sans-serif;
-  line-height: 1.9;
-  background-color: var(--color-quaternary);
-}
-
-li {
-  list-style: none;
-}
-
-i {
+.input-section h3 {
   color: var(--color-primary);
   font-size: calc(1.5rem + 1vw);
+  font-weight: 500;
+  margin-bottom: 4.5rem;
 }
-
-a:link,
-a:visited {
-  text-decoration: none;
-  color: var(--color-quinary);
-  font-weight: 300;
-  letter-spacing: 0.2rem;
-  font-size: calc(1.2rem + 0.5vw);
+.input-section__add-btn {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
-
-a:focus-visible {
-  outline: 0.2rem solid var(--color-primary-m);
-  border-radius: 0.3rem;
+.input-section > div.method-sector:first-child {
+  margin-top: 0;
 }
-
-button:focus-visible {
-  outline: 0.2rem solid var(--color-primary);
-  border-radius: 0.3rem;
-}
-
-input[type=checkbox]:focus-visible {
-  outline: 0.1rem solid var(--color-primary);
-  border-radius: 0.2rem;
-}
-
-::selection {
-  background-color: var(--color-primary);
-}/*# sourceMappingURL=index.css.map */
+.input-section > div.method-sector {
+  margin-bottom: 3rem;
+}/*# sourceMappingURL=InputSection.module.css.map */

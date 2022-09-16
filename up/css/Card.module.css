@@ -28,13 +28,20 @@ html {
   --color-button: #e45826;
 }
 
-.app {
-  display: grid;
-  grid-template-columns: [container-start] 1fr [center-start] repeat(6, [col-start] minmax(min-content, 16.66667rem) [col-end]) [center-end] 1fr [container-end];
-  grid-template-rows: min-content 90vh repeat(9, min-content);
+.card {
+  padding: 3% 4% 7%;
+  width: 90%;
+  height: max-content;
+  background: var(--color-card-background);
+  box-shadow: 0 0.8rem 3.2rem 0 var(--color-quinary-m);
+  backdrop-filter: blur(0.4rem);
+  -webkit-backdrop-filter: blur(0.4rem);
+  border-radius: 1rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
 }
 @media screen and (max-width: 800px) {
-  .app {
-    grid-template-rows: min-content 100vh repeat(9, min-content);
+  .card {
+    padding: 3% 3% 3%;
+    width: 98%;
   }
-}/*# sourceMappingURL=App.module.css.map */
+}/*# sourceMappingURL=Card.module.css.map */
