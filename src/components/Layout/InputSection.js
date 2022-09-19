@@ -16,7 +16,7 @@ function InputSection() {
 
   const variableInputs = variableFields.map(variable => <VariableInput key={variable.id} id={variable.id} />);
 
-  // const methodInputs = useMemo(() => methodFields.map(method => <MethodInput key={method.id} id={method.id} />), [methodFields]);
+  const methodInputs = methodFields.map(method => <MethodInput key={method.id} id={method.id} />);
 
   return (
     <section className={styles['input-section']} id='input'>
@@ -34,10 +34,10 @@ function InputSection() {
 
         {/* Method Input Fields */}
         <h3>Methods</h3>
-        {/* {methodInputs}
+        {methodInputs}
         <div className={styles['input-section__add-btn']}>
           <AddInputFieldButton type={'method'} />
-        </div> */}
+        </div>
 
         {/* To Code Button */}
         <div className={styles['input-section__to-code-btn']}>

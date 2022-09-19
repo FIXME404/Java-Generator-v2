@@ -51,15 +51,7 @@ function GettersSettersGenerator() {
     } else return '';
   });
 
-  return (
-    <>
-      {mappedVariables.map(generatedCode => {
-        if (generatedCode === null) return <></>;
-
-        return <>{generatedCode}</>;
-      })}
-    </>
-  );
+  return <>{mappedVariables}</>;
 }
 
 export default GettersSettersGenerator;

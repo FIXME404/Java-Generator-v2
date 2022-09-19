@@ -10,13 +10,13 @@ const initialState = { returns: '', name: '', params: '', isMethodPrivate: false
 
 const methodReducer = (state, action) => {
   if (action.type === 'RETURNS') {
-    return { ...state, type: action.value };
+    return { ...state, returns: action.value };
   } else if (action.type === 'NAME') {
     return { ...state, name: action.value };
   } else if (action.type === 'PARAMS') {
-    return { ...state, includesGetter: !state.includesGetter };
+    return { ...state, params: action.value };
   } else if (action.type === 'IS_METHOD_PRIVATE') {
-    return { ...state, includesSetter: !state.includesSetter };
+    return { ...state, isMethodPrivate: !state.includesSetter };
   } else {
     return initialState;
   }
@@ -33,9 +33,8 @@ function MethodInput(props) {
   const handleCheckboxChange = (state, action) => dispatchActions({ type: action, value: state });
 
   useEffect(() => {
-    return () => {
-      dispatch(methodsActions.addMethod({ values: inputState, id: props.id }));
-    };
+    dispatch(methodsActions.updateMethod({ ...inputState, id: props.id }));
+    return () => {};
   }, [inputState, dispatch, props.id]);
 
   return (

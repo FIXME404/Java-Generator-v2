@@ -10,7 +10,7 @@ const initialState = { type: '', name: '', includesGetter: false, includesSetter
 
 const variableReducer = (state, action) => {
   if (action.type === 'TYPE') {
-    return { type: action.value, name: state.name, includesGetter: state.includesGetter, includesSetter: state.includesSetter };
+    return { ...state, type: action.value };
   } else if (action.type === 'NAME') {
     return { ...state, name: action.value };
   } else if (action.type === 'GETTER') {
@@ -32,7 +32,10 @@ function VariableInput(props) {
 
   const handleCheckboxChange = (state, action) => dispatchActions({ type: action, value: state });
 
-  useEffect(() => void dispatch(classVariablesActions.updateVariable({ ...inputState, id: props.id })), [inputState, dispatch, props.id]);
+  useEffect(() => {
+    dispatch(classVariablesActions.updateVariable({ ...inputState, id: props.id }));
+    return () => {};
+  }, [inputState, dispatch, props.id]);
 
   return (
     <div className={styles['variable-sector']}>

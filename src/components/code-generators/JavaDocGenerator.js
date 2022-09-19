@@ -1,27 +1,18 @@
 function JavaDocGenerator(props) {
-  // console.log('JavaDocGenerator RENDERED');
   const { name, params, returns } = props;
 
-  let paramList = ``;
-  let returnList = ``;
+  let paramList;
 
   if (params !== undefined) {
     if (params.length === 1) {
       paramList = `@param -`;
     } else if (params.length > 1) {
       paramList = params.map(param => {
-        return `@param ${param.name}`;
+        return `* @param ${param} -
+        `;
       });
-    }
-  }
-
-  if (returns !== undefined) {
-    if (returns.length === 1) {
-      returnList = `@return -`;
-    } else if (returns !== undefined && returns.length > 1) {
-      returnList = returns.map(ret => {
-        return `@return ${ret.name}`;
-      });
+    } else {
+      paramList = '';
     }
   }
 
@@ -33,7 +24,7 @@ function JavaDocGenerator(props) {
     ` *
   `,
     ...paramList,
-    ...returnList,
+    `${returns === '' ? '' : ` * @return ${returns}`}`,
     ` 
 */
 `
