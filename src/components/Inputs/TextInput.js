@@ -1,32 +1,23 @@
-import { useState } from 'react';
+import { memo } from 'react';
 import styles from './TextInput.module.scss';
 
-function TextInput(props) {
-  const [inputText, setInputText] = useState('');
+const TextInput = props => {
+  console.log('TEXT INPUT RENDERED');
+  // const [inputState, setInputState] = useState('');
 
-  const handleTextChange = event => setInputText(prevState => event.target.value);
+  // const handleTextChange = event => setInputState(() => event.target.value);
 
-  const handleChange = () => {
-    console.log('THIS IS RUNNING', inputText.trim().length !== 0);
-    if (inputText.trim().length !== 0) {
-      console.log(inputText, props.name);
-      props.updateMethod(inputText, props.name);
-    }
+  const handleChange = event => {
+    const enteredText = event.target.value;
+    if (enteredText.trim().length > 0) props.updateMethod(enteredText, props.name);
   };
 
   return (
     <div className={styles['text-input']}>
-      <input
-        id={props.name}
-        type='text'
-        value={inputText}
-        onChange={handleTextChange}
-        onBlur={handleChange}
-        placeholder={props.placeholder}
-      />
+      <input type='text' id={props.name} placeholder={props.placeholder} onBlur={handleChange} />
       <label htmlFor={props.name}>{props.label}</label>
     </div>
   );
-}
+};
 
-export default TextInput;
+export default memo(TextInput);

@@ -1,10 +1,12 @@
 import HeaderCodeGenerator from '../code-generators/HeaderCodeGenerator';
+import GettersSettersGenerator from '../code-generators/GettersSettersGenerator';
 
 function GeneratedCode() {
   return (
-    <div>
+    <>
       <HeaderCodeGenerator />
-    </div>
+      <GettersSettersGenerator />
+    </>
   );
 }
 

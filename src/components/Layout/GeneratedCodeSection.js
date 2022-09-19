@@ -6,7 +6,9 @@ function GeneratedCodeSection() {
   return (
     <section className={styles['code-section']}>
       <Card>
-        <GeneratedCode />
+        <div className={styles['code-section__code']}>
+          <GeneratedCode />
+        </div>
       </Card>
     </section>
   );

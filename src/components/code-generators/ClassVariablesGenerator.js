@@ -1,27 +1,17 @@
 import { useSelector } from 'react-redux';
 
 function ClassVariablesGenerator() {
-  const { variables } = useSelector(state => state.variables);
-  console.log(variables, variables[0].type);
+  const variables = useSelector(state => {
+    console.log(state, 'STATE IN CLASS VARIABLES GENERATOR');
+    return state.variables.variables;
+  });
 
-  const generatedCode = `// Class Variables
-    ${variables
-      .map(
-        variable =>
-          `${
-            variable.type.trim() !== '' || variable.name.trim() !== ''
-              ? `private ${variable.type} ${variable.name};`
-              : ''
-          }`
-      )
-      .join('\n  ')}
+  console.log('@@@@@@@@@   file: ClassVariablesGenerator.js   line 8   ClassVariablesGenerator   variables', variables);
+
+  const generatedCode = `${variables.map(variable => `${variable.type.trim() !== '' || variable.name.trim() !== '' ? `    private ${variable.type} ${variable.name};\n` : ''}`).join(' ')}
     `;
 
-  return (
-    <div style={{ height: '10rem', textAlign: 'left', width: '42rem', color: 'white' }}>
-      <span style={{ whiteSpace: 'pre-wrap' }}>{generatedCode}</span>
-    </div>
-  );
+  return <span style={{ whiteSpace: 'pre-wrap' }}>{generatedCode}</span>;
 }
 
 export default ClassVariablesGenerator;

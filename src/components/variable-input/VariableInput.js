@@ -1,16 +1,16 @@
 import styles from './VariableInput.module.scss';
 import { useEffect, useReducer } from 'react';
-import { classVariablesActions } from '../../store/class-variables';
 import { useDispatch } from 'react-redux/es/exports';
-import RemoveInputFieldButton from '../Buttons/RemoveInputFieldButton';
+import { classVariablesActions } from '../../store/class-variables';
 import TextInput from '../Inputs/TextInput';
 import Checkbox from '../Inputs/Checkbox';
+import RemoveInputFieldButton from '../Buttons/RemoveInputFieldButton';
 
 const initialState = { type: '', name: '', includesGetter: false, includesSetter: false };
 
 const variableReducer = (state, action) => {
   if (action.type === 'TYPE') {
-    return { ...state, type: action.value };
+    return { type: action.value, name: state.name, includesGetter: state.includesGetter, includesSetter: state.includesSetter };
   } else if (action.type === 'NAME') {
     return { ...state, name: action.value };
   } else if (action.type === 'GETTER') {
@@ -23,23 +23,16 @@ const variableReducer = (state, action) => {
 };
 
 function VariableInput(props) {
+  console.log('VARIABLE INPUT RENDERED');
   const [inputState, dispatchActions] = useReducer(variableReducer, initialState);
 
   const dispatch = useDispatch();
 
-  const handleTextChange = (state, action) => {
-    console.log(state, action);
-    dispatchActions({ type: action, value: state });
-    console.log(inputState, props.id);
+  const handleTextChange = (state, action) => dispatchActions({ type: action, value: state });
 
-    dispatch(classVariablesActions.updateVariable({ id: props.id, ...inputState }));
-  };
+  const handleCheckboxChange = (state, action) => dispatchActions({ type: action, value: state });
 
-  const handleCheckboxChange = (state, action) => {
-    dispatchActions({ type: action, value: state });
-    console.log(inputState, props.id);
-    dispatch(classVariablesActions.updateVariable({ id: props.id, ...inputState }));
-  };
+  useEffect(() => void dispatch(classVariablesActions.updateVariable({ ...inputState, id: props.id })), [inputState, dispatch, props.id]);
 
   return (
     <div className={styles['variable-sector']}>

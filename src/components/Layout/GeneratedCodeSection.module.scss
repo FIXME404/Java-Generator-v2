@@ -10,4 +10,15 @@
   display: flex;
   justify-content: center;
   text-align: center;
+
+  &__code {
+    text-align: left;
+  }
+
+  span {
+    font-size: 1.5rem;
+    color: var(--color-primary-m);
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
 }

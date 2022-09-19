@@ -1,9 +1,11 @@
 import styles from './HeaderInput.module.scss';
+import { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { headerActions } from '../../store/header';
 import TextInput from '../Inputs/TextInput';
 
 function HeaderInput() {
+  console.log('HEADER INPUT RENDERED');
   const dispatch = useDispatch();
 
   const changeNameHandler = inputText => dispatch(headerActions.addName(inputText));
@@ -15,33 +17,18 @@ function HeaderInput() {
   return (
     <div className={styles['header-sector']}>
       <div className={styles['header-sector__content']}>
-        <TextInput
-          name='NAME'
-          label='Class Name'
-          placeholder='Class Name'
-          updateMethod={changeNameHandler}
-        />
+        <TextInput name='CLASSNAME' label='Class Name' placeholder='Class Name' updateMethod={changeNameHandler} />
       </div>
 
       <div className={styles['header-sector__content']}>
-        <TextInput
-          name='EXTENDS'
-          label='extend'
-          placeholder='extend'
-          updateMethod={changeExtendsHandler}
-        />
+        <TextInput name='EXTENDS' label='extend' placeholder='extend' updateMethod={changeExtendsHandler} />
       </div>
 
       <div className={styles['header-sector__content']}>
-        <TextInput
-          name='IMPLEMENTS'
-          label='implements'
-          placeholder='implements'
-          updateMethod={changeImplementsHandler}
-        />
+        <TextInput name='IMPLEMENTS' label='implements' placeholder='implements' updateMethod={changeImplementsHandler} />
       </div>
     </div>
   );
 }
 
-export default HeaderInput;
+export default memo(HeaderInput);

@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
 import styles from './MethodInput.module.scss';
 import TextInput from '../Inputs/TextInput';
@@ -23,41 +23,30 @@ const methodReducer = (state, action) => {
 };
 
 function MethodInput(props) {
+  console.log('METHOD INPUT RENDERED');
   const [inputState, dispatchActions] = useReducer(methodReducer, initialState);
 
   const dispatch = useDispatch();
 
   const handleTextChange = (state, action) => dispatchActions({ type: action, value: state });
 
-  const handleCheckboxChange = (state, action) => {
-    dispatchActions({ type: action, value: state });
-    dispatch(methodsActions.addMethod({ values: inputState, id: props.id }));
-  };
+  const handleCheckboxChange = (state, action) => dispatchActions({ type: action, value: state });
+
+  useEffect(() => {
+    return () => {
+      dispatch(methodsActions.addMethod({ values: inputState, id: props.id }));
+    };
+  }, [inputState, dispatch, props.id]);
 
   return (
     <div className={styles['method-sector']}>
       <div className={styles['method-sector__input']}>
-        <TextInput
-          name='RETURNS'
-          label='Return Type'
-          placeholder='Return Type'
-          updateMethod={handleTextChange}
-        />
+        <TextInput name='RETURNS' label='Return Type' placeholder='Return Type' updateMethod={handleTextChange} />
 
-        <TextInput
-          name='NAME'
-          label='Method Name'
-          placeholder='Method Name'
-          updateMethod={handleTextChange}
-        />
+        <TextInput name='NAME' label='Method Name' placeholder='Method Name' updateMethod={handleTextChange} />
 
         <div className={styles['method-sector__input--params']}>
-          <TextInput
-            name='PARAMS'
-            label='Parameters'
-            placeholder='Parameters'
-            updateMethod={handleTextChange}
-          />
+          <TextInput name='PARAMS' label='Parameters (Comma Separated)' placeholder='Parameters (Comma Separated)' updateMethod={handleTextChange} />
         </div>
       </div>
 
@@ -69,49 +58,6 @@ function MethodInput(props) {
         <RemoveInputFieldButton type={'method'} id={props.id} />
       </div>
     </div>
-    // <div className='row'>
-    //     <input
-    //       name='RETURNS'
-    //       type='text'
-    //       placeholder='Return Type'
-    //       value={state.returns}
-    //       onChange={handleTextChange}
-    //       onBlur={handleChange}
-    //     />
-
-    //     <input
-    //       name='NAME'
-    //       type='text'
-    //       placeholder="Method's name"
-    //       value={state.name}
-    //       onChange={handleTextChange}
-    //       onBlur={handleChange}
-    //     />
-    //     <input
-    //       name='PARAMS'
-    //       type='text'
-    //       placeholder='Params (seperated by commas)'
-    //       value={state.name}
-    //       onChange={handleTextChange}
-    //       onBlur={handleChange}
-    //     />
-
-    //   <div className='col-4'>
-    //     <label>
-    //       <input
-    //         name='IS_METHOD_PRIVATE'
-    //         type='checkbox'
-    //         checked={state.isMethodPrivate}
-    //         onKeyPress={handleChange}
-    //         onChange={handleChange}
-    //       />{' '}
-    //       Private?
-    //     </label>
-    //   </div>
-    //   <div className='col-1'>
-    //     <RemoveInputField type={'method'} id={props.id} />
-    //   </div>
-    // </div>
   );
 }
 

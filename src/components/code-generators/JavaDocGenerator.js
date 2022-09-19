@@ -1,23 +1,45 @@
 function JavaDocGenerator(props) {
-  const { name, description, params, returns } = props;
-  const paramList = params.map(param => {
-    return `@param ${param.name} ${param.description}`;
-  });
-  const returnList = returns.map(ret => {
-    return `@return ${ret.description}`;
-  });
+  // console.log('JavaDocGenerator RENDERED');
+  const { name, params, returns } = props;
+
+  let paramList = ``;
+  let returnList = ``;
+
+  if (params !== undefined) {
+    if (params.length === 1) {
+      paramList = `@param -`;
+    } else if (params.length > 1) {
+      paramList = params.map(param => {
+        return `@param ${param.name}`;
+      });
+    }
+  }
+
+  if (returns !== undefined) {
+    if (returns.length === 1) {
+      returnList = `@return -`;
+    } else if (returns !== undefined && returns.length > 1) {
+      returnList = returns.map(ret => {
+        return `@return ${ret.name}`;
+      });
+    }
+  }
+
   const lines = [
-    `/**`,
-    ` * ${description}`,
-    ` *`,
+    ` /**
+  `,
+    ` * ${name} --
+  `,
+    ` *
+  `,
     ...paramList,
     ...returnList,
-    ` */`,
-    `${name}() {`,
-    `}`
+    ` 
+*/
+`
   ];
 
-  return <span style={{ 'white-space': 'pre-line' }}>lines.join(` `);</span>;
+  return <span style={{ whiteSpace: 'pre-wrap' }}>{lines.join(` `)}</span>;
 }
 
 export default JavaDocGenerator;

@@ -1,37 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit';
+import nextId from 'react-id-generator';
 
-const initialClassVariablesState = { variables: [{ id: 'v0', type: '', name: '' }] };
+const initialClassVariablesState = { variables: [{ id: nextId(), type: '', name: '', includesGetter: false, includesSetter: false }] };
 
 const classVarSlice = createSlice({
   name: 'class-variables',
   initialState: initialClassVariablesState,
   reducers: {
-    // Updates current inputed value in the input field
+    // FINDS THE INDEX OF VARIABLE IN THE VARIABLES ARRAY AND REPLACES ITS CONTENT WITH NEW GIVEN CONTENT
     updateVariable: (state, action) => {
-      if (state.variables.length === 0) {
-        state.variables.push(action.payload);
-      } else {
-        const updatedVariables = state.variables.map(variable => {
-          if (action.payload.id === variable.id) {
-            return action.payload;
-          }
-          return variable;
-        });
-        state.variables = updatedVariables;
-      }
+      const updatedVariables = state.variables.map(variable => {
+        if (action.payload.id === variable.id) {
+          return action.payload;
+        }
+        return variable;
+      });
+      state.variables = updatedVariables;
     },
 
-    //Adds a new input field to the UI
-    addVariable: (state, action) => void state.variables.push('v' + (state.variables.length + 1)),
+    // ADDS A NEW VARIABLE TO THE VARIABLES ARRAY TO BE DISPLAYED IN THE UI
+    addVariable: state =>
+      void state.variables.push({
+        id: nextId(),
+        type: '',
+        name: '',
+        includesGetter: false,
+        includesSetter: false
+      }),
 
-    //Removes a specified input field from the UI
-    removeVariable: (state, action) => {
-      console.log(action.payload);
-      void (state.variables = state.variables.filter(variable => {
-        console.log(variable.id, action.payload.id);
-        return variable.id === action.payload.id;
-      }));
-    }
+    //REMOVES THE VARIABLE FROM THE VARIABLES ARRAY
+    removeVariable: (state, action) => void (state.variables = state.variables.filter(variable => variable.id !== action.payload))
   }
 });
 
