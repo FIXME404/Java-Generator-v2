@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import styles from './Navbar.module.scss';
 import java from '../../imgs/java.png';
 
-function Navbar() {
+function Navbar(props) {
   const [themeState, changeThemeState] = useState(false);
   const [hamburgerState, changeHamburgerState] = useState('');
 
   const handleChangingTheme = () => {
-    themeState
-      ? document.documentElement.setAttribute('data-theme', 'dark')
-      : document.documentElement.setAttribute('data-theme', 'light');
+    themeState ? document.documentElement.setAttribute('data-theme', 'dark') : document.documentElement.setAttribute('data-theme', 'light');
     return changeThemeState(state => !state);
   };
 
@@ -23,6 +21,14 @@ function Navbar() {
     });
   };
 
+  const linksArray = props.links.map(link => {
+    return (
+      <li key={link.id} className={styles['header__nav--links__items']}>
+        <a href={link.link}>{link.name}</a>
+      </li>
+    );
+  });
+
   return (
     <header className={`${styles[hamburgerState]} ${styles['header']}`}>
       {/* Hamburger Lines */}
@@ -31,10 +37,7 @@ function Navbar() {
       </div>
 
       {/* Overlay */}
-      <div
-        className={`${styles[hamburgerState]} ${styles['header__overlay']}`}
-        onClick={() => handleHamburgerOpen()}
-      />
+      <div className={`${styles[hamburgerState]} ${styles['header__overlay']}`} onClick={() => handleHamburgerOpen()} />
 
       {/* Navbar */}
       <nav className={`${styles[hamburgerState]} ${styles['header__nav']}`}>
@@ -44,7 +47,8 @@ function Navbar() {
 
         {/* Links */}
         <ul className={styles['header__nav--links']}>
-          <li className={styles['header__nav--links__items']}>
+          {linksArray}
+          {/* <li className={styles['header__nav--links__items']}>
             <a href='#input'>Start</a>
           </li>
 
@@ -58,18 +62,11 @@ function Navbar() {
 
           <li className={styles['header__nav--links__items']}>
             <a href='#footer'>Contact</a>
-          </li>
+          </li> */}
 
           {/* Dark Mode Toggler */}
           <div className={styles['header__nav--links__toggle-container']}>
-            <input
-              type='checkbox'
-              id='toggle'
-              name='theme'
-              value={themeState}
-              checked={themeState}
-              onChange={() => handleChangingTheme()}
-            />
+            <input type='checkbox' id='toggle' name='theme' value={themeState} checked={themeState} onChange={() => handleChangingTheme()} />
           </div>
         </ul>
       </nav>

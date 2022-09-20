@@ -1,13 +1,20 @@
 import Logo from '../../imgs/Logo.png';
 import styles from './ShowcaseSection.module.scss';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import Navbar from './Navbar';
+import Navbar from '../../components/UI/Navbar';
 
 function ShowcaseSection() {
+  const links = [
+    { link: '#input', name: 'Start' },
+    { link: '#code', name: 'Code' },
+    { link: '/contact', name: 'Contact Me' },
+    { link: '#footer', name: 'About' }
+  ];
+
   return (
     <section id='showcase' className={styles.showcase}>
       <div className={styles['showcase__navbar']}>
-        <Navbar />
+        <Navbar links={links} />
       </div>
 
       <div className={styles['showcase__content']}>

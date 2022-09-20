@@ -1,0 +1,144 @@
+@use '../../_breakpoints.scss' as mixins;
+@import '../../variables.scss';
+
+.code-section {
+  grid-column: container-start / container-end;
+  position: relative;
+
+  background-color: var(--color-quaternary-m);
+  padding: 3rem 0;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  &__content {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+    position: relative;
+
+    span {
+      font-size: 1.5rem;
+      color: var(--color-primary-m);
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    &--code {
+      padding: 2rem;
+      border-radius: 0.5rem;
+      color: var(--color-quinary-m);
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    i {
+      width: min-content;
+      position: absolute;
+      right: 3rem;
+      top: 2rem;
+      cursor: pointer;
+      font-size: 4rem;
+    }
+
+    i:hover {
+      color: var(--color-button);
+    }
+  }
+
+  &__success-message {
+    position: absolute;
+    top: 16rem;
+    right: 0;
+    color: var(--color-primary);
+    background-color: var(--color-quaternary);
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    font-size: calc(1.2rem + 0.5vw);
+    font-weight: 300;
+    line-height: 1.5;
+    transform: translateX(0);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  &__show {
+    transform: translateX(-50%);
+    opacity: 1;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 1024px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-laptop {
+    &__content {
+      i {
+        right: 7rem;
+      }
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-tablet {
+    &__content {
+      span {
+        font-size: 1.5rem;
+        color: var(--color-primary-m);
+        font-weight: 500;
+        margin-bottom: 2rem;
+      }
+
+      &--code {
+        padding: 2rem;
+        border-radius: 0.5rem;
+        color: var(--color-quinary-m);
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+      }
+
+      i {
+        right: 6rem;
+        font-size: 2.8rem;
+      }
+    }
+
+    &__success-message {
+      top: 12.5rem;
+    }
+
+    &__show {
+      top: 12.5rem;
+      transform: translateX(-9%);
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile-large {
+    &__content {
+    }
+
+    &__success-message {
+      top: -2rem;
+    }
+
+    &__show {
+      top: -2rem;
+      transform: translateX(-9%);
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile {
+    &__content {
+      i {
+        right: 1rem;
+      }
+    }
+  }
+}

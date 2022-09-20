@@ -1,8 +1,8 @@
 import { useReducer, useEffect } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
 import styles from './MethodInput.module.scss';
-import TextInput from '../Inputs/TextInput';
-import Checkbox from '../Inputs/Checkbox';
+import TextInput from '../inputs/TextInput';
+import Checkbox from '../inputs/Checkbox';
 import RemoveInputFieldButton from '../Buttons/RemoveInputFieldButton';
 import { methodsActions } from '../../store/methods';
 

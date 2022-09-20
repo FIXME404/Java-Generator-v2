@@ -2,8 +2,8 @@ import styles from './VariableInput.module.scss';
 import { useEffect, useReducer } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
 import { classVariablesActions } from '../../store/class-variables';
-import TextInput from '../Inputs/TextInput';
-import Checkbox from '../Inputs/Checkbox';
+import TextInput from '../inputs/TextInput';
+import Checkbox from '../inputs/Checkbox';
 import RemoveInputFieldButton from '../Buttons/RemoveInputFieldButton';
 
 const initialState = { type: '', name: '', includesGetter: false, includesSetter: false };

@@ -1,11 +1,10 @@
 import styles from './InputSection.module.scss';
-import { useMemo, memo } from 'react';
 import { useSelector } from 'react-redux';
-import Card from '../UI/Card';
-import HeaderInput from '../header-input/HeaderInput';
-import VariableInput from '../variable-input/VariableInput';
-import MethodInput from '../method-input/MethodInput';
-import AddInputFieldButton from '../Buttons/AddInputFieldButton';
+import Card from '../../components/UI/Card';
+import HeaderInput from '../../components/header-input/HeaderInput';
+import VariableInput from '../../components/variable-input/VariableInput';
+import MethodInput from '../../components/method-input/MethodInput';
+import AddInputFieldButton from '../../components/Buttons/AddInputFieldButton';
 
 function InputSection() {
   console.log('INPUT SECTION RENDERED');

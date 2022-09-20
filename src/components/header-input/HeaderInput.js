@@ -2,7 +2,7 @@ import styles from './HeaderInput.module.scss';
 import { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { headerActions } from '../../store/header';
-import TextInput from '../Inputs/TextInput';
+import TextInput from '../inputs/TextInput';
 
 function HeaderInput() {
   console.log('HEADER INPUT RENDERED');

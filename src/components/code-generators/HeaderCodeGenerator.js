@@ -14,22 +14,35 @@ function HeaderCodeGenerator() {
  
   `;
 
+  const spanName = <span>{name}</span>;
+
   const classHeader = ` 
   /**
       * default constructor --
       * 
   * /
-  public class ${name}${extend.trim() !== '' ? ` extend ${extend}` : ''}${implement.trim() !== '' ? ` implement ${implement}` : ''}() {
+  public class ${spanName} ${extend.trim() !== '' ? ` extend ${extend}` : ''}${implement.trim() !== '' ? ` implement ${implement}` : ''}() {
 
   }//END OF CONSTRUCTOR
       
       `;
+
+  const classHeaders =
+    //prettier-ignore
+    <span style={{ whiteSpace: 'pre-wrap', display: 'inline-block' }}>
+       /**
+          * default constructor --
+          *                                                                                                           
+       */                                                                                  
+       public class <span style={{ color: 'burlywood', whiteSpace: 'pre-wrap', whiteSpace: '-moz-pre-wrap' }}>{name}</span>
+    </span>;
 
   return (
     <span style={{ whiteSpace: 'pre-wrap' }}>
       {generatedCode}
       <ClassVariablesGenerator /> {classHeader}
     </span>
+    // classHeaders
   );
 }
 
