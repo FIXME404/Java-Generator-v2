@@ -7,11 +7,9 @@ import MethodInput from '../../components/method-input/MethodInput';
 import AddInputFieldButton from '../../components/Buttons/AddInputFieldButton';
 
 function InputSection() {
-  console.log('INPUT SECTION RENDERED');
+  // console.log('INPUT SECTION RENDERED');
   const variableFields = useSelector(state => state.variables.variables);
   const methodFields = useSelector(state => state.methods.methods);
-
-  console.log(variableFields, 'VARIABLE FIELDS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
 
   const variableInputs = variableFields.map(variable => <VariableInput key={variable.id} id={variable.id} />);
 

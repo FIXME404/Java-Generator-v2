@@ -2,7 +2,7 @@ import { memo } from 'react';
 import styles from './TextInput.module.scss';
 
 const TextInput = props => {
-  console.log('TEXT INPUT RENDERED');
+  // console.log('TEXT INPUT RENDERED');
   // const [inputState, setInputState] = useState('');
 
   // const handleTextChange = event => setInputState(() => event.target.value);

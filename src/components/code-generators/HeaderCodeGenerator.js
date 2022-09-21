@@ -4,45 +4,74 @@ import ClassVariablesGenerator from './ClassVariablesGenerator';
 function HeaderCodeGenerator() {
   const { name, extends: extend, implements: implement } = useSelector(state => state.headers.headers);
 
-  const generatedCode = `/**
+  const textColorStyle = {
+    color: 'Coral'
+  };
+
+  const commentColorStyle = {
+    color: 'DarkSlateGray'
+  };
+
+  const projectJavaDoc = `/**
       * ${name} -- .
       *
       * <p> Description: </p>
       *
       * @ author
 */
- 
   `;
 
-  const spanName = <span>{name}</span>;
+  const classHeader = (
+    <span>
+      {`     
+  public class`}{' '}
+      <span style={textColorStyle}>{name}</span>{' '}
+      {extend.trim() !== '' ? (
+        <>
+          extend <span style={textColorStyle}>{extend} </span>
+        </>
+      ) : (
+        ''
+      )}
+      {implement.trim() !== '' ? (
+        <>
+          implement <span style={textColorStyle}>{implement} </span>
+        </>
+      ) : (
+        ''
+      )}
+      {`{`} <br />
+      <ClassVariablesGenerator />
+      {`       
+      /**
+            * default constructor --
+            *                                                                                                           
+      */
+      `}
+      {name.trim() !== '' ? (
+        <>
+          public <span style={textColorStyle}>{name}</span>
+        </>
+      ) : (
+        ''
+      )}
+      ()
+      {` {
 
-  const classHeader = ` 
-  /**
-      * default constructor --
-      * 
-  * /
-  public class ${spanName} ${extend.trim() !== '' ? ` extend ${extend}` : ''}${implement.trim() !== '' ? ` implement ${implement}` : ''}() {
-
-  }//END OF CONSTRUCTOR
-      
-      `;
-
-  const classHeaders =
-    //prettier-ignore
-    <span style={{ whiteSpace: 'pre-wrap', display: 'inline-block' }}>
-       /**
-          * default constructor --
-          *                                                                                                           
-       */                                                                                  
-       public class <span style={{ color: 'burlywood', whiteSpace: 'pre-wrap', whiteSpace: '-moz-pre-wrap' }}>{name}</span>
-    </span>;
+      }`}
+      <span style={commentColorStyle}>
+        //END OF DEFAULT CONSTRUCTOR
+        <br />
+        <br />
+      </span>{' '}
+    </span>
+  );
 
   return (
-    <span style={{ whiteSpace: 'pre-wrap' }}>
-      {generatedCode}
-      <ClassVariablesGenerator /> {classHeader}
+    <span>
+      {projectJavaDoc}
+      {classHeader}
     </span>
-    // classHeaders
   );
 }
 

@@ -8,8 +8,8 @@ function Checkbox(props) {
   const handleOnKeyPress = event => {
     if (event.key === 'Enter') {
       setIsChecked(prevState => !prevState);
+      props.updateCheckbox(isChecked, props.name);
     }
-    props.updateCheckbox(isChecked, props.name);
   };
 
   const handleChange = () => {

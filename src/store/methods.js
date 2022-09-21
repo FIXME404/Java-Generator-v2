@@ -22,7 +22,7 @@ const methodsSlice = createSlice({
     addMethod: state => void state.methods.push({ id: nextId(), returns: '', name: '', params: '', isMethodPrivate: false }),
 
     //REMOVES THE METHOD FROM THE METHODS ARRAY
-    removeMethod: (state, action) => void (state.methods = state.methods.filter(method => method.id === action.payload))
+    removeMethod: (state, action) => void (state.methods = state.methods.filter(method => method.id !== action.payload))
   }
 });
 

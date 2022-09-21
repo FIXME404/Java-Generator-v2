@@ -1,3 +1,55 @@
 .footer {
   color: var(--color-primary);
+  font-size: font-size(font-size-large);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+
+    a {
+      display: inline-block;
+      width: 2px;
+    }
+
+    i {
+      font-size: 3.5rem;
+      margin: 0 2.5rem 0 0;
+      cursor: pointer;
+    }
+
+    i:hover {
+      color: var(--color-secondary);
+      transform: scale(1.15);
+      transition: all 0.3s ease-in-out;
+    }
+
+    p {
+      font-size: font-size(font-size-decent);
+      margin: 0;
+    }
+
+    &--left,
+    &--right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+
+      & > div {
+        margin: 4rem;
+      }
+    }
+  }
+
+  &__content::before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 0.2rem;
+    height: 80%;
+    background-color: var(--color-primary);
+    opacity: 0.2;
+  }
 }

@@ -3,10 +3,21 @@ import { useSelector } from 'react-redux';
 function ClassVariablesGenerator() {
   const variables = useSelector(state => state.variables.variables);
 
-  const generatedCode = `${variables.map(variable => `${variable.type.trim() !== '' || variable.name.trim() !== '' ? `    private ${variable.type} ${variable.name};\n` : ''}`).join(' ')}
-    `;
+  const textColorStyle = {
+    color: 'DodgerBlue'
+  };
 
-  return <span style={{ whiteSpace: 'pre-wrap' }}>{generatedCode}</span>;
+  const instanceVariables = variables.map(variable =>
+    variable.type.trim() !== '' || variable.name.trim() !== '' ? (
+      <>
+        {`      private ${variable.type}`} <span style={textColorStyle}>{variable.name}</span>;
+        <br />
+      </>
+    ) : (
+      ''
+    )
+  );
+  return <>{instanceVariables}</>;
 }
 
 export default ClassVariablesGenerator;

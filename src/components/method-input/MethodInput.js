@@ -23,7 +23,7 @@ const methodReducer = (state, action) => {
 };
 
 function MethodInput(props) {
-  console.log('METHOD INPUT RENDERED');
+  // console.log('METHOD INPUT RENDERED');
   const [inputState, dispatchActions] = useReducer(methodReducer, initialState);
 
   const dispatch = useDispatch();
