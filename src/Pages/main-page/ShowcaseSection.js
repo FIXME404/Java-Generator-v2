@@ -6,9 +6,9 @@ import Navbar from '../../components/UI/Navbar';
 function ShowcaseSection() {
   const links = [
     { link: '#input', name: 'Start' },
-    { link: '#code', name: 'Code' },
-    { link: '/contact', name: 'Contact Me' },
-    { link: '#footer', name: 'About' }
+    { link: '#about', name: 'Documentation' },
+    { link: '#footer', name: 'About' },
+    { link: '/contact', name: 'Contact Me' }
   ];
 
   return (

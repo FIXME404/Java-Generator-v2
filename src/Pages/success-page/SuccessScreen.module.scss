@@ -1,0 +1,77 @@
+@use '../../_breakpoints.scss' as mixins;
+@import '../../variables';
+
+.success-section {
+  color: var(--color-secondary);
+
+  & > div {
+    margin: 3rem auto;
+    width: 70%;
+  }
+
+  h1 {
+    font-size: 9rem;
+    font-weight: font-weight(font-weight-bold);
+    color: var(--color-secondary);
+    margin: 0 auto 2rem;
+    text-align: center;
+
+    i {
+      font-size: 9rem;
+      color: var(--color-button);
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: font-weight(font-weight-bold);
+    color: var(--color-secondary);
+    margin: 0 auto 2rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 2rem;
+    font-weight: font-weight(font-weight-thin);
+    color: var(--color-secondary);
+    margin: 0 auto 2rem;
+    text-align: center;
+  }
+
+  a {
+    color: var(--color-primary);
+    font-size: 4rem;
+    font-weight: font-weight(font-weight-thin);
+    text-decoration: none;
+    text-align: center;
+    margin-right: 2rem;
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-tablet {
+    & > div {
+      width: 95%;
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile-large {
+    h1 {
+      font-size: 6rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+
+    a {
+      font-size: 2.5rem;
+    }
+  }
+}

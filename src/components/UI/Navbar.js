@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './Navbar.module.scss';
-import java from '../../imgs/java.png';
 
 function Navbar(props) {
   const [themeState, changeThemeState] = useState(false);
@@ -41,29 +40,12 @@ function Navbar(props) {
 
       {/* Navbar */}
       <nav className={`${styles[hamburgerState]} ${styles['header__nav']}`}>
-        <a className={styles['header__nav--logo']} href='#footer'>
-          <img className={styles['header__nav--img']} src={java} alt='Java logo' />
-        </a>
+        {/* Logo */}
+        <i class='fa-solid fa-code'></i>
 
         {/* Links */}
         <ul className={styles['header__nav--links']}>
           {linksArray}
-          {/* <li className={styles['header__nav--links__items']}>
-            <a href='#input'>Start</a>
-          </li>
-
-          <li className={styles['header__nav--links__items']}>
-            <a href='#code'>About</a>
-          </li>
-
-          <li className={styles['header__nav--links__items']}>
-            <a href='#code'>Code</a>
-          </li>
-
-          <li className={styles['header__nav--links__items']}>
-            <a href='#footer'>Contact</a>
-          </li> */}
-
           {/* Dark Mode Toggler */}
           <div className={styles['header__nav--links__toggle-container']}>
             <input type='checkbox' id='toggle' name='theme' value={themeState} checked={themeState} onChange={() => handleChangingTheme()} />

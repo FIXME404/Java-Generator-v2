@@ -40,6 +40,12 @@
     justify-content: space-evenly;
     background-color: var(--color-primary);
 
+    i {
+      margin: auto 0;
+      font-size: 3rem;
+      color: var(--color-quaternary);
+    }
+
     //Logo
     &__logo {
       padding: 1rem;
@@ -245,6 +251,22 @@
     &__overlay.open {
       display: block;
       opacity: 0.8;
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 480px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile {
+    &__nav {
+      width: 21rem;
+
+      &--links {
+        &__items {
+          a:link,
+          a:visited {
+            font-size: 1.5rem;
+          }
+        }
+      }
     }
   }
 }

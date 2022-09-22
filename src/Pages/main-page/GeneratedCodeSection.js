@@ -27,7 +27,7 @@ function GeneratedCodeSection() {
 
   const clipBoardIcon = wasCopied ? <i className='fa-solid fa-check'></i> : <i className='fa-regular fa-clipboard' onClick={copyToClipboard}></i>;
   return (
-    <section className={styles['code-section']}>
+    <section className={styles['code-section']} id='code'>
       <Card>
         <div className={styles['code-section__content']}>
           <div className={styles['code-section__content--code']} id='generated-code'>

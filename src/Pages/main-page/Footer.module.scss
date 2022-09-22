@@ -1,44 +1,56 @@
+@use '../../_breakpoints.scss' as mixins;
+@import '../../variables';
+
 .footer {
   color: var(--color-primary);
-  font-size: font-size(font-size-large);
 
   &__content {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     position: relative;
 
-    a {
-      display: inline-block;
-      width: 2px;
+    h2,
+    h3 {
+      font-size: font-size(font-size-extra-small);
     }
 
-    i {
+    a {
+      color: var(--color-primary);
+
       font-size: 3.5rem;
       margin: 0 2.5rem 0 0;
       cursor: pointer;
     }
 
-    i:hover {
+    i:hover,
+    a:hover {
       color: var(--color-secondary);
       transform: scale(1.15);
       transition: all 0.3s ease-in-out;
     }
 
     p {
-      font-size: font-size(font-size-decent);
+      font-size: 1rem;
       margin: 0;
     }
 
-    &--left,
-    &--right {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    &--left > div {
       text-align: left;
+      margin: 6rem 0;
+    }
 
-      & > div {
-        margin: 4rem;
+    &--right {
+      &__contact-me {
+        display: block;
+        text-align: left;
+        margin: 0 0 8rem 0;
+      }
+
+      &__trademark {
+        display: block;
+        text-align: left;
+        margin: 0 0 2rem 0;
       }
     }
   }
@@ -51,5 +63,37 @@
     height: 80%;
     background-color: var(--color-primary);
     opacity: 0.2;
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-tablet {
+    &__content {
+      text-align: left;
+      h2,
+      h3 {
+        font-size: 1rem;
+      }
+
+      i {
+        margin: 2rem 1rem 0 0;
+      }
+
+      &--right {
+        margin-right: 4rem;
+      }
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile-large {
+    &__content {
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &__content::before {
+      display: none;
+    }
   }
 }
