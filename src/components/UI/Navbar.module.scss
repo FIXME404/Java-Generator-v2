@@ -60,14 +60,44 @@
       display: flex;
 
       &__items {
+        position: relative;
+
         a:link,
         a:visited {
           font-size: 2rem;
           color: var(--color-secondary);
-          margin-right: 2vw;
-          padding: 0 1.5rem;
+          padding: 0 2.5rem;
+        }
+
+        a:before,
+        a:after {
+          position: absolute;
+          opacity: 0;
+          font-size: font-size(font-size-regular);
+          top: 0px;
+          transition: all 0.3s;
+        }
+
+        a:before {
+          content: '(';
+          left: 2rem;
+        }
+
+        a:after {
+          content: ')';
+          right: 2rem;
+        }
+
+        a:hover:before {
+          opacity: 1;
+          transform: translateX(-1rem);
+        }
+        a:hover:after {
+          opacity: 1;
+          transform: translateX(1rem);
         }
       }
+
       //Toggle Dark mode button
       &__toggle-container {
         display: flex;
