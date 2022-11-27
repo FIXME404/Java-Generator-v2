@@ -22,7 +22,7 @@
 
     span {
       font-size: 1.5rem;
-      color: var(--color-primary-m);
+      color: var(--color-secondary);
       font-weight: 500;
       margin-bottom: 2rem;
       white-space: pre-wrap;
@@ -121,9 +121,6 @@
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @include mixins.media-mobile-large {
-    &__content {
-    }
-
     &__success-message {
       top: -2rem;
     }
@@ -134,7 +131,7 @@
     }
   }
 
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 480px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @include mixins.media-mobile {
     &__content {
       i {

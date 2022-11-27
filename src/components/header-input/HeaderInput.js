@@ -5,7 +5,7 @@ import { headerActions } from '../../store/header';
 import TextInput from '../inputs/TextInput';
 
 function HeaderInput() {
-  console.log('HEADER INPUT RENDERED');
+  // console.log('HEADER INPUT RENDERED');
   const dispatch = useDispatch();
 
   const changeNameHandler = inputText => dispatch(headerActions.addName(inputText));

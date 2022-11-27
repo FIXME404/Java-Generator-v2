@@ -54,7 +54,7 @@
     }
   }
 
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 800px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @include mixins.media-mobile-large {
     a {
       font-size: font-size(font-size-extra-small);

@@ -28,8 +28,8 @@ function MethodsGenerator() {
       return (
         <>
           <JavaDocGenerator name={name} params={params.split(',')} returns={returns} />
-          {isMethodPrivate ? 'private ' : 'public '} {returns === '' ? 'void' : returns} <span style={methodNameColor}>{name}</span>(<span style={parameterTextColor}>{params}</span>)
-          {`{
+          {isMethodPrivate ? 'private' : 'public'} {returns === '' ? 'void' : returns} <span style={methodNameColor}>{name}</span>(<span style={parameterTextColor}>{params}</span>)
+          {` {
             return `}
           <span style={returnTextColor}>{returns.trim() !== '' && returns !== 'void' ? 'new' + returns.charAt(0).toUpperCase() + returns.slice(1) + '()' : ''}</span>
           {`;

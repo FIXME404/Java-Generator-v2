@@ -3,9 +3,6 @@ import styles from './TextInput.module.scss';
 
 const TextInput = props => {
   // console.log('TEXT INPUT RENDERED');
-  // const [inputState, setInputState] = useState('');
-
-  // const handleTextChange = event => setInputState(() => event.target.value);
 
   const handleChange = event => {
     const enteredText = event.target.value;

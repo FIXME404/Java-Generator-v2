@@ -3,8 +3,8 @@ import Navbar from '../../components/UI/Navbar';
 
 function PageNotFound() {
   const navbarLinks = [
-    { link: '/', name: 'Home' },
-    { link: '/report-bug', name: 'Report Bug' }
+    { path: '/', name: 'Home' },
+    { path: '/report-bug', name: 'Report Bug' }
   ];
 
   return (
