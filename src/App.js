@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import LoadingSpinner from './components/UI/LoadingSpinner';
 import ErrorBoundary from './Pages/error-pages/ErrorBoundary';
 
@@ -15,6 +15,7 @@ function App() {
       <ErrorBoundary>
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
+            <Route path='/java-code-generator' element={<Navigate to='/' />} />
             <Route path='/' element={<MainPage />} />
             <Route path='/success' element={<SuccessScreen />} />
             <Route path='*' element={<PageNotFound />} />
