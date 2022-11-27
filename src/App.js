@@ -1,42 +1,26 @@
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import ShowcaseSection from './Pages/main-page/ShowcaseSection';
-import InstructionsSection from './Pages/main-page/InstructionsSection';
-import InputSection from './Pages/main-page/InputSection';
-import GeneratedCodeSection from './Pages/main-page/GeneratedCodeSection';
-import Footer from './Pages/main-page/Footer';
-import ContactMeForm from './Pages/contact-page/ContactMeForm';
-import SuccessScreen from './Pages/success-page/SuccessScreen';
-import ReportBugPage from './Pages/contact-page/ReportBugPage';
-import PageNotFound from './Pages/404-page/PageNotFound';
+import LoadingSpinner from './components/UI/LoadingSpinner';
+import ErrorBoundary from './Pages/error-pages/ErrorBoundary';
 
 function App() {
-  const mainPage = (
-    <>
-      <ShowcaseSection />
-      <InstructionsSection />
-      <InputSection />
-      <GeneratedCodeSection />
-      <Footer />
-    </>
-  );
+  const MainPage = lazy(() => import('./Pages/main-page/MainPage'));
 
-  const contactPage = <ContactMeForm />;
+  const SuccessScreen = lazy(() => import('./Pages/success-page/SuccessScreen'));
 
-  const successPage = <SuccessScreen />;
-
-  const pageNotFound = <PageNotFound />;
-
-  const reporBugPage = <ReportBugPage />;
+  const PageNotFound = lazy(() => import('./Pages/error-pages/PageNotFound'));
 
   return (
     <div id='app'>
-      <Routes>
-        <Route path='/' element={mainPage} />
-        <Route path='/contact' element={contactPage} />
-        <Route path='/success' element={successPage} />
-        <Route path='/report-bug' element={reporBugPage} />
-        <Route path='*' element={pageNotFound} />
-      </Routes>
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path='/' element={<MainPage />} />
+            <Route path='/success' element={<SuccessScreen />} />
+            <Route path='*' element={<PageNotFound />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }

@@ -2,26 +2,207 @@
 @import '../../variables';
 
 .instructions-section {
+  padding: 6rem 0 3rem 0;
   grid-column: container-start / container-end;
 
   background-color: var(--color-quaternary-m);
-  padding: 3rem 0;
   height: max-content;
   display: flex;
   justify-content: center;
-  text-align: center;
+  text-align: left;
+  line-height: 1.6;
 
   h3 {
-    color: var(--color-primary);
+    color: var(--color-secondary);
+    font-size: font-size(font-size-regular);
+    font-weight: font-weight(font-weight-bold);
+    margin-top: 3rem;
+  }
+
+  h4 {
+    color: var(--color-secondary);
     font-size: font-size(font-size-small);
     font-weight: font-weight(font-weight-medium);
-    margin-bottom: 4.5rem;
+    margin: 5rem 0 2rem 0;
+  }
+
+  label {
+    color: var(--color-secondary-m);
+    font-size: font-size(font-size-extra-small);
+    font-weight: font-weight(font-weight-bold);
   }
 
   p {
-    color: var(--color-primary);
+    color: var(--color-secondary-m);
     font-size: font-size(font-size-extra-small);
-    font-weight: font-weight(font-weight-medium);
-    margin-bottom: 4.5rem;
+    font-weight: font-weight(font-weight-regular);
+  }
+
+  &__inputs {
+    position: relative;
+
+    & h4::before {
+      content: '';
+      position: absolute;
+      top: 3.5rem;
+      height: 0.2rem;
+      width: 25%;
+      opacity: 0.4;
+      background-color: var(--color-secondary);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1.5rem;
+
+    p {
+      margin-left: 1rem;
+    }
+
+    &--remove-btn {
+      width: 4rem;
+      height: 1.1rem;
+      background-color: var(--color-button);
+      border: none;
+      border-radius: 5rem;
+      position: relative;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 0.2rem;
+        width: 68%;
+        background-color: white;
+        border-radius: 5rem;
+        top: 0.42rem;
+        right: 0.6rem;
+      }
+
+      &::before {
+        top: 0.4rem;
+      }
+    }
+
+    &--add-btn {
+      width: calc(3rem + 2vh);
+      height: calc(2rem + 2vh);
+      background-color: var(--color-button);
+      border-radius: 50%;
+      border: none;
+      position: relative;
+      display: inline-block;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 49.9%;
+        height: calc(0.3rem + 0.1vw);
+        width: 68%;
+        background-color: white;
+        border-radius: 5rem;
+        transform: translate(-50%, -50%);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: calc(0.3rem + 0.1vw);
+        left: 49.8%;
+        height: 60%;
+        background-color: white;
+        border-radius: 5rem;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &--generate-btn {
+      background: #e45826;
+      border: 0.1rem solid #e45826;
+      border-radius: 2.5rem;
+      box-shadow: rgba(0, 0, 0, 0.1) 0.1rem 0.2rem 0.4rem;
+      color: #ffffff;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      width: max-content;
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile-large {
+    line-height: 1.9;
+    h3 {
+      font-size: font-size(font-size-small);
+    }
+
+    h4 {
+      font-size: font-size(font-size-extra-small);
+    }
+
+    label {
+      font-size: font-size(font-size-extra-extra-small);
+    }
+
+    p {
+      font-size: font-size(font-size-extra-extra-small);
+    }
+
+    &__inputs {
+      & h4::before {
+        width: 40%;
+        height: 0.1rem;
+        opacity: 0.1;
+      }
+    }
+
+    &__buttons {
+      p {
+        font-size: font-size(font-size-extra-extra-small);
+      }
+
+      &--remove-btn {
+        width: 5rem;
+
+        &::before {
+          right: 0.6rem;
+        }
+      }
+
+      &--add-btn {
+        width: calc(2.5rem + 2vh);
+        height: calc(1rem + 2vh);
+
+        &::before {
+          height: calc(0.2rem + 0.1vw);
+        }
+
+        &::after {
+          width: calc(0.2rem + 0.1vw);
+        }
+      }
+
+      &--generate-btn {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 480px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile {
+    &__buttons {
+      &--add-btn {
+        width: calc(5rem + 2vh);
+        height: calc(1rem + 2vh);
+      }
+
+      &--remove-btn {
+        width: 7rem;
+      }
+    }
   }
 }

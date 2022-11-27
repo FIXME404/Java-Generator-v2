@@ -20,11 +20,11 @@
   }
 
   input:checked[type='checkbox'] {
-    background-color: var(--color-primary);
+    background-color: var(--color-button);
   }
 
   input:not(:checked)[type='checkbox'] {
-    background-color: var(--color-quaternary);
+    background-color: var(--color-primary);
   }
 
   input[type='checkbox']::before {
@@ -39,24 +39,24 @@
   input[type='checkbox']::before {
     content: '';
     left: 0;
-    background-color: white;
+    background-color: var(--color-secondary);
   }
 
   input:checked[type='checkbox']::before {
-    left: 63%;
+    left: 64.5%;
   }
 
   input:not(:checked)[type='checkbox']::after {
-    right: 0.5rem;
+    right: 1rem;
     top: 0.2rem;
     content: 'N0';
     position: absolute;
     height: 100%;
-    color: var(--color-secondary);
+    color: var(--color-quaternary-m);
   }
 
   input:checked[type='checkbox']::after {
-    left: 0.6rem;
+    left: 0.8rem;
     top: 0.2rem;
     content: 'YES';
     position: absolute;

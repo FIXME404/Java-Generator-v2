@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
 import styles from './Navbar.module.scss';
+import React, { useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar(props) {
-  const [themeState, changeThemeState] = useState(false);
+  const htmlTheme = document.documentElement.getAttribute('data-theme');
+  const [themeState, changeThemeState] = useState(htmlTheme === 'dark' ? false : true);
   const [hamburgerState, changeHamburgerState] = useState('');
 
-  const handleChangingTheme = () => {
+  const handleChangingTheme = useCallback(() => {
     themeState ? document.documentElement.setAttribute('data-theme', 'dark') : document.documentElement.setAttribute('data-theme', 'light');
     return changeThemeState(state => !state);
-  };
+  }, [themeState]);
 
   const handleHamburgerOpen = () => {
     changeHamburgerState(() => {
@@ -20,12 +22,20 @@ function Navbar(props) {
     });
   };
 
-  const linksArray = props.links.map(link => {
-    return (
-      <li key={link.id} className={styles['header__nav--links__items']}>
-        <a href={link.link}>{link.name}</a>
-      </li>
-    );
+  const linksArray = props.links.map((link, index) => {
+    if (link.path !== undefined && link.path !== null) {
+      return (
+        <li key={index} className={styles['header__nav--links__items']}>
+          <Link to={link.path}>{link.name}</Link>
+        </li>
+      );
+    } else {
+      return (
+        <li key={index} className={styles['header__nav--links__items']}>
+          <a href={link.link}>{link.name}</a>
+        </li>
+      );
+    }
   });
 
   return (
@@ -41,7 +51,7 @@ function Navbar(props) {
       {/* Navbar */}
       <nav className={`${styles[hamburgerState]} ${styles['header__nav']}`}>
         {/* Logo */}
-        <i class='fa-solid fa-code'></i>
+        <i className='fa-solid fa-code'></i>
 
         {/* Links */}
         <ul className={styles['header__nav--links']}>

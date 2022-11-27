@@ -1,0 +1,20 @@
+.scroll {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  height: 4rem;
+  width: 4rem;
+  background-color: var(--color-secondary-m);
+  padding: 1rem;
+  border-radius: 50%;
+  z-index: 30;
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}

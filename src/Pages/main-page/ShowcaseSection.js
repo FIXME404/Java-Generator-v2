@@ -8,7 +8,7 @@ function ShowcaseSection() {
     { link: '#input', name: 'Start' },
     { link: '#about', name: 'Documentation' },
     { link: '#footer', name: 'About' },
-    { link: '/contact', name: 'Contact Me' }
+    { path: '/contact', name: 'Contact Me' }
   ];
 
   return (
@@ -20,7 +20,9 @@ function ShowcaseSection() {
       <div className={styles['showcase__content']}>
         <div className={styles['showcase__content--heading']}>
           {/* Heading */}
-          <h1>Java Code Generator</h1>
+          <h1>
+            Java Code Generator<p>|</p>
+          </h1>
         </div>
 
         <div className={styles['showcase__content--subheading']}>

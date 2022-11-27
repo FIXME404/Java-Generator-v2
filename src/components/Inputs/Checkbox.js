@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './Checkbox.module.scss';
 
 function Checkbox(props) {
-  console.log('CHECKBOX RENDERED');
+  // console.log('CHECKBOX RENDERED');
   const [isChecked, setIsChecked] = useState(false);
 
   const handleOnKeyPress = event => {

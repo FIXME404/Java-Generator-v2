@@ -1,0 +1,55 @@
+@use '../../_breakpoints.scss' as mixins;
+@import '../../variables';
+
+.section {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 2rem;
+
+    h1 {
+      font-size: 9rem;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 6rem;
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 3rem;
+      font-weight: 400;
+      margin: 4rem auto 2rem;
+    }
+
+    i {
+      font-size: 6rem;
+      margin-right: 0.5rem;
+      color: var(--color-button);
+    }
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ The 600px Mark Breakpoint @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @include mixins.media-mobile-large {
+    h1 {
+      font-size: 6rem;
+    }
+
+    h2 {
+      font-size: 4rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+
+    i {
+      font-size: 4rem;
+    }
+  }
+}
