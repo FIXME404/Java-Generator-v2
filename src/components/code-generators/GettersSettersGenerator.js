@@ -39,7 +39,7 @@ function GettersSettersGenerator() {
         <span style={returnTextColor}>{name}</span>;
         {`
             }`}
-        <span style={commentTextColor}>//END OF GET{name.toUpperCase()}</span>
+        <span style={commentTextColor}>{`//END OF GET ${name.toUpperCase()}`}</span>
         <br />
         <br />
         <JavaDocGenerator name={'set' + name.charAt(0).toUpperCase() + name.slice(1)} params={['']} key={nextId()} />
@@ -55,7 +55,7 @@ function GettersSettersGenerator() {
         <span style={returnTextColor}>{name}</span> = <span style={returnTextColor}>{name}</span>;
         {`
             }`}{' '}
-        <span style={commentTextColor}>//END OF SET{name.toUpperCase()}</span>
+        <span style={commentTextColor}>{`//END OF SET${name.toUpperCase()}`}</span>
         <br />
         <br />
       </>
@@ -76,7 +76,7 @@ function GettersSettersGenerator() {
         <span style={returnTextColor}>{name}</span> = <span style={returnTextColor}>{name}</span>;
         {`
             }`}{' '}
-        <span style={commentTextColor}>//END OF SET{name.toUpperCase()}</span>
+        <span style={commentTextColor}>{`//END OF SET${name.toUpperCase()}`}</span>
         <br />
         <br />
       </>

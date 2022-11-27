@@ -60,7 +60,7 @@ function HeaderCodeGenerator() {
 
       }`}
       <span style={commentColorStyle}>
-        //END OF DEFAULT CONSTRUCTOR
+        {`//END OF DEFAULT CONSTRUCTOR`}
         <br />
         <br />
       </span>{' '}

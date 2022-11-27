@@ -1,5 +1,5 @@
 import styles from './Footer.module.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -14,9 +14,13 @@ function Footer() {
 
           <div className={styles['footer__content--left__follow-me']}>
             <h2>Follow Me Below!</h2>
-            <a className='fa-brands fa-github-alt' href='https://github.com/FIXME404'></a>
+            <a className='fa-brands fa-github-alt' href='https://github.com/FIXME404' target='_blank' rel='noopener noreferrer'>
+              {' '}
+            </a>
 
-            <a className='fa-brands fa-linkedin' href='https://www.linkedin.com/in/fixme404/'></a>
+            <a className='fa-brands fa-linkedin' href='https://www.linkedin.com/in/bryan-granda-8585b5255/' target='_blank' rel='noopener noreferrer'>
+              {' '}
+            </a>
           </div>
         </div>
         <div className={styles['footer__content--right']}>

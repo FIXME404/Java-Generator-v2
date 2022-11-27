@@ -34,7 +34,7 @@ function MethodsGenerator() {
           <span style={returnTextColor}>{returns.trim() !== '' && returns !== 'void' ? 'new' + returns.charAt(0).toUpperCase() + returns.slice(1) + '()' : ''}</span>
           {`;
             }`}
-          <span style={commentTextColor}>//END OF {name.toUpperCase()}</span>
+          <span style={commentTextColor}>{`//END OF ${name.toUpperCase()}`}</span>
           <br />
           <br />
         </>

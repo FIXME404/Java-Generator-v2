@@ -18,8 +18,12 @@ function SuccessScreen(props) {
           </h1>
           <h2>Your message has been sent successfully.</h2>
           <p>Thank you for your feedback!</p>
-          <a class='fa-brands fa-github-alt' href='https://github.com/FIXME404'></a>
-          <a class='fa-brands fa-linkedin' href='https://github.com/FIXME404'></a>
+          <a class='fa-brands fa-github-alt' href='https://github.com/FIXME404' target='_blank' rel='noopener noreferrer'>
+            {' '}
+          </a>
+          <a class='fa-brands fa-linkedin' href='https://github.com/FIXME404' target='_blank' rel='noopener noreferrer'>
+            {' '}
+          </a>
         </div>
       </Card>
     </section>
