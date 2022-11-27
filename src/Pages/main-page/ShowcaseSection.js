@@ -8,7 +8,7 @@ function ShowcaseSection() {
     { link: '#input', name: 'Start' },
     { link: '#about', name: 'Documentation' },
     { link: '#footer', name: 'About' },
-    { path: '/contact', name: 'Contact Me' }
+    { link: 'https://portfolio-bryan-granda.vercel.app/', name: 'Contact Me', target: '_blank', rel: 'noopener noreferrer' }
   ];
 
   return (

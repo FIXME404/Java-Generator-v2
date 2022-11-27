@@ -32,7 +32,9 @@ function Navbar(props) {
     } else {
       return (
         <li key={index} className={styles['header__nav--links__items']}>
-          <a href={link.link}>{link.name}</a>
+          <a href={link.link} target={link.target} rel={link.rel}>
+            {link.name}
+          </a>
         </li>
       );
     }

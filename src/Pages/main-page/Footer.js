@@ -1,5 +1,4 @@
 import styles from './Footer.module.scss';
-import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -8,13 +7,15 @@ function Footer() {
         <div className={styles['footer__content--left']}>
           <div className={styles['footer__content--left__contact-me']}>
             <h3>Want To Connect? Have A Comment?</h3>
-            <Link to='/contact' className='fa-solid fa-envelope'></Link>
+            <a className='fa-solid fa-envelope' href='https://portfolio-bryan-granda.vercel.app/' target='_blank' rel='noopener noreferrer'>
+              {' '}
+            </a>
             <h2>Click Above!</h2>
           </div>
 
           <div className={styles['footer__content--left__follow-me']}>
             <h2>Follow Me Below!</h2>
-            <a className='fa-brands fa-github-alt' href='https://github.com/FIXME404' target='_blank' rel='noopener noreferrer'>
+            <a className='fa-brands fa-github-alt' href='https://github.com/bryan-granda' target='_blank' rel='noopener noreferrer'>
               {' '}
             </a>
 
@@ -26,7 +27,9 @@ function Footer() {
         <div className={styles['footer__content--right']}>
           <div className={styles['footer__content--right__contact-me']}>
             <h2>Found A Bug? Please Contact Me Below!</h2>
-            <Link to='/report-bug' className='fa-solid fa-bug-slash'></Link>
+            <a className='fa-solid fa-bug-slash' href='https://portfolio-bryan-granda.vercel.app/' target='_blank' rel='noopener noreferrer'>
+              {' '}
+            </a>
           </div>
 
           <div className={styles['footer__content--right__trademark']}>
