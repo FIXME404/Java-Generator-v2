@@ -23,7 +23,7 @@ const variableReducer = (state, action) => {
 };
 
 function VariableInput(props) {
-  console.log('VARIABLE INPUT RENDERED');
+  // console.log('VARIABLE INPUT RENDERED');
   const [inputState, dispatchActions] = useReducer(variableReducer, initialState);
 
   const dispatch = useDispatch();

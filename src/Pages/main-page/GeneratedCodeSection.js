@@ -15,17 +15,16 @@ function GeneratedCodeSection() {
   };
 
   useEffect(() => {
-    if (wasCopied) {
-      const timer = setTimeout(() => {
-        setWasCopied(false);
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
+    let timer;
+    if (wasCopied) timer = setTimeout(() => setWasCopied(false), 1500);
+
+    return () => clearTimeout(timer);
   }, [wasCopied]);
 
   const isMessageDisplayed = wasCopied ? styles['code-section__show'] : '';
 
   const clipBoardIcon = wasCopied ? <i className='fa-solid fa-check'></i> : <i className='fa-regular fa-clipboard' onClick={copyToClipboard}></i>;
+
   return (
     <section className={styles['code-section']} id='code'>
       <Card>

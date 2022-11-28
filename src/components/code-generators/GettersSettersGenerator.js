@@ -6,28 +6,29 @@ function GettersSettersGenerator() {
   // console.log('GETTERS SETTERS RENDERED');
   const variables = useSelector(state => state.variables.variables);
 
+  const methodNameColor = {
+    color: 'DarkCyan'
+  };
+
+  const returnTextColor = {
+    color: 'Hotpink'
+  };
+
+  const commentTextColor = {
+    color: 'DarkSlateGray'
+  };
+
+  const parameterTextColor = {
+    color: 'lightsalmon'
+  };
+
+  const keyWordThisColor = {
+    color: 'Orange'
+  };
+
   const mappedVariables = variables.map(variable => {
+    console.log(variable, 'variable');
     const { type, name, includesGetter, includesSetter } = variable;
-
-    const methodNameColor = {
-      color: 'DarkCyan'
-    };
-
-    const returnTextColor = {
-      color: 'Hotpink'
-    };
-
-    const commentTextColor = {
-      color: 'DarkSlateGray'
-    };
-
-    const parameterTextColor = {
-      color: 'lightsalmon'
-    };
-
-    const keyWordThisColor = {
-      color: 'Orange'
-    };
 
     const getMethod = (
       <>
@@ -40,22 +41,6 @@ function GettersSettersGenerator() {
         {`
             }`}
         <span style={commentTextColor}>{`//END OF GET ${name.toUpperCase()}`}</span>
-        <br />
-        <br />
-        <JavaDocGenerator name={'set' + name.charAt(0).toUpperCase() + name.slice(1)} params={['']} key={nextId()} />
-        public void
-        <span style={methodNameColor}> set{name.charAt(0).toUpperCase() + name.slice(1)}</span>(
-        <span style={parameterTextColor}>
-          {type} {name}
-        </span>
-        )
-        {` {
-              `}
-        <span style={keyWordThisColor}>this.</span>
-        <span style={returnTextColor}>{name}</span> = <span style={returnTextColor}>{name}</span>;
-        {`
-            }`}{' '}
-        <span style={commentTextColor}>{`//END OF SET${name.toUpperCase()}`}</span>
         <br />
         <br />
       </>
@@ -82,18 +67,12 @@ function GettersSettersGenerator() {
       </>
     );
 
-    if (includesGetter && includesSetter) {
-      return (
-        <span>
-          {getMethod}
-          {setMethod}
-        </span>
-      );
-    } else if (includesGetter) {
-      return <span>{getMethod}</span>;
-    } else if (includesSetter) {
-      return <span>{setMethod}</span>;
-    } else return '';
+    return (
+      <span key={nextId()}>
+        {includesGetter && getMethod}
+        {includesSetter && setMethod}
+      </span>
+    );
   });
 
   return <>{mappedVariables}</>;
